@@ -70,9 +70,9 @@ namespace Schnupperspiel
             HighscoreText.setSize(94, 44);
 
 
-            game.add(TimeText);
-            game.add(PointsText);
-            game.add(HighscoreText);
+            game.addTimeText(TimeText);
+            game.addPointsText(PointsText);
+            game.addHighscoreText(HighscoreText);
 
             Button buttongame = new Button();
             buttongame.setPosition(12, 550);
@@ -96,6 +96,8 @@ namespace Schnupperspiel
 
             game.makeGame(this);
 
+            gamePanel.add(createPlayer());
+            KeyDown += new KeyEventHandler(movePlayer);
 
 
         }
@@ -107,34 +109,37 @@ namespace Schnupperspiel
             Player player = new Player();
             player.setSize(50, 50);
             player.setSpeed(4);
-            player.setPosition(xPlayer, yPlayer);
+            player.setPosition(xPlayer, yPlayer);  
             return player;
+
         }
 
 
 
         private void movePlayer(object sender, KeyEventArgs key)
         {
-            /*Player player = gamePanel.getPlayer();
+            Player player = gamePanel.getPlayer();
             if (key.KeyCode == Keys.D && game.checkPanelRight())
             {
-                
+                player.moveRight();
             }
             if (key.KeyCode == Keys.A && game.checkPanelLeft())
             {
-                
+                player.moveLeft();   
             }
             if (key.KeyCode == Keys.W && game.checkPanelTop())
+               
             {
-                
+                player.moveUp();
             }
             if (key.KeyCode == Keys.S && game.checkPanelBottom())
             {
-                
-            }*/
+                player.moveDown();
+            }
+            player.setPosition(player.getPositionX(), player.getPositionY());
         }
-        /*private void tmrGame_Tick(object sender, EventArgs e)
+        private void tmrGame_Tick(object sender, EventArgs e)
         {
-        }*/
+        }
     }
 }
