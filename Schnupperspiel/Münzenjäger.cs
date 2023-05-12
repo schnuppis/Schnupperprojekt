@@ -1,4 +1,5 @@
 using System;
+using System.Data;
 using System.Windows.Forms;
 
 // !! ALS STARTDATEI "Schnupperspiel.csproj - Debug|AnyCPU" auswählen !!
@@ -75,6 +76,18 @@ namespace Schnupperspiel
             buttonStop.Click += new System.EventHandler(game.btnStop_Click);
             game.add(buttonStop);
 
+            Timer tmrGame = game.tmrGame;
+            tmrGame.Tick += new System.EventHandler(this.tmrGame_Tick);
+            game.setTime(1000);
+            game.setTimerGameInterval(1000);
+
+            if (game.getTime()==0)
+            {
+                game.timeIsUp();
+                game.stopGame();
+            }
+
+
             game.makeGame(this);
 
 
@@ -113,6 +126,7 @@ namespace Schnupperspiel
             player.getPositionX();
             player.getPositionY();
         }
+
         /*private void tmrGame_Tick(object sender, EventArgs e)
         {
         }*/
