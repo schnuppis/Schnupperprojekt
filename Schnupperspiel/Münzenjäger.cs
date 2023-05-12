@@ -19,6 +19,9 @@ namespace Schnupperspiel
         {
             InitializeComponent();
         }
+
+        public int coinY = 30;
+        public int coinX = 30;
         private void loadGame(object sender, EventArgs e)
         {
 
@@ -80,6 +83,14 @@ namespace Schnupperspiel
             gamePanel.add(createPlayer());
             KeyDown += new KeyEventHandler(moveplayer);
 
+            Timer tmrGame = game.tmrGame;
+            tmrGame.Tick += new System.EventHandler(this.tmrGame_Tick);
+            game.setTime(60);
+            game.setTimerGameInterval(1000);
+            
+
+            Timer tmrCoin = game.tmrCoin;
+            tmrCoin.Tick += new System.EventHandler(this.tmrCoin_Tick);
 
 
 
@@ -108,21 +119,46 @@ namespace Schnupperspiel
             }
             player.setPosition(player.getPositionX(),player.getPositionY());
         }
-        /*private void tmrGame_Tick(object sender, EventArgs e)
+        private void tmrGame_Tick(object sender, EventArgs e)
         {
-        }*/
-
+            if (game.getTime() == 0)
+            {
+                game.timeIsUp();
+                game.stopGame();
+            }
+        }
+        private void tmrCoin_Tick(object sender, EventArgs e)
+        {
+            game.setScore(game.getPoints());
+            game.LookForCoin(10);
+            while (50 > game.getCoinList().Count) 
+            {
+                CreatCoins();
+                
+            }
+        }
         private Player createPlayer()
         {
             Player player = new Player();
             player.setSize(50,50);
-            player.setSpeed(4);
+            player.setSpeed(30);
             player.setPosition(xPlayer,yPlayer);
             return player;
             
+
+            
+
         }
 
-
+        public void CreatCoins()
+        {
+            Coin coin = new Coin(); 
+            coin.setSize(20,20);
+            coin.addToList(game.getCoinList());
+            coinX = random.Next(20, gamePanel.getWidth() - 40);
+            coinY = random.Next(20, gamePanel.getHeight() - 40);
+            coin.setPosition(coinX,coinY, gamePanel);
+        }
 
     }
 }
