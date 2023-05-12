@@ -1,4 +1,5 @@
 using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 // !! ALS STARTDATEI "Schnupperspiel.csproj - Debug|AnyCPU" auswählen !!
@@ -11,6 +12,9 @@ namespace Schnupperspiel
         private Random random = new Random();
         public static int xPlayer = 750;
         public static int yPlayer = 450;
+
+        public static int xCoin;
+        public static int yCoin;
 
         public Panel gamePanel;
 
@@ -104,8 +108,14 @@ namespace Schnupperspiel
 
             Timer tmrGame = game.tmrGame;
             tmrGame.Tick += new System.EventHandler(this.tmrGame_Tick);
+
+            Timer tmrCoin = game.tmrCoin;
+            tmrCoin.Tick += new System.EventHandler(this.Coin);
+
+
+
+
             
-            tmrGame.Tick += new System.EventHandler(this.tmrGame_Tick);
 
 
 
@@ -156,6 +166,44 @@ namespace Schnupperspiel
             }
               
 
+    
+        
+        }
+        private void Coins()
+        {
+
+            Coin goldcoin = new Coin();
+            goldcoin.setSize(20, 20);
+            goldcoin.addToList(game.getCoinList());
+            goldcoin.setPosition(xCoin, yCoin, gamePanel);
+            
+
+
+        }
+
+       
+        
+
+        private void Coin(object sender, EventArgs e)
+        {
+            game.LookForCoin(10);
+            game.setScore(game.getPoints());
+           
+            while (game.getCoinList().Count < 15)
+            { 
+                xCoin = random.Next(20, gamePanel.getWidth() - 40);
+                yCoin = random.Next(20, gamePanel.getWidth() - 40);
+            
+             if (game.checkCoinPosition(xCoin, yCoin)) {
+
+                    Coins();
+                    
+                }
+                    
+                }
+            }
         }
     }
-}
+
+
+
