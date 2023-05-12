@@ -22,6 +22,7 @@ namespace Schnupperspiel
 
         private int xcoin;
         private int ycoin;
+        private int Hscore;
         
         
         private void loadGame(object sender, EventArgs e)
@@ -113,7 +114,7 @@ namespace Schnupperspiel
         {
             Player player = new Player();
             player.setSize(50, 50);
-            player.setSpeed(4);
+            player.setSpeed(10);
             player.setPosition(0, 0);
             return player;
 
@@ -162,6 +163,12 @@ namespace Schnupperspiel
             {
                 game.timeIsUp();
                 game.stopGame();
+
+
+                if (game.getPoints() > game.getHighscore())
+                {
+                    game.setHighscore(game.getPoints());
+                }
             }
         }
         private void tmrCoin_Tick(object sender, EventArgs e)
