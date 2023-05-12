@@ -1,4 +1,5 @@
 using System;
+using System.Security.Cryptography;
 using System.Windows.Forms;
 
 // !! ALS STARTDATEI "Schnupperspiel.csproj - Debug|AnyCPU" auswählen !!
@@ -78,6 +79,8 @@ namespace Schnupperspiel
             highscore.setPosition(820, 130);
             highscore.setSize(220, 55);
             highscore.setText("Higscore:");
+
+            KeyDown += new KeyEventHandler(movePlayer);
             
             
             game.add(name);
@@ -91,32 +94,48 @@ namespace Schnupperspiel
 
             game.add(start);
             game.add(stop);
+            gamePanel.add(createPlayer());
 
 
-
+          
 
 
             game.makeGame(this);
         }
+        private Player createPlayer()
+        {
+
+            Player player = new Player();
+
+            player.setSize(50, 50);
+            player.setSpeed(4);
+            player.setPosition(xPlayer, yPlayer);
+            
+
+            return player;
+        }
         private void movePlayer(object sender, KeyEventArgs key)
         {
-            /*Player player = gamePanel.getPlayer();
+            Player player = gamePanel.getPlayer();
             if (key.KeyCode == Keys.D && game.checkPanelRight())
             {
-                
+               
+                player.moveRight();
+
             }
             if (key.KeyCode == Keys.A && game.checkPanelLeft())
             {
-                
+                player.moveLeft();
             }
             if (key.KeyCode == Keys.W && game.checkPanelTop())
             {
-                
+                player.moveUp();
             }
             if (key.KeyCode == Keys.S && game.checkPanelBottom())
             {
-                
-            }*/
+                player.moveDown();
+            }
+            player.setPosition(player.getPositionX(), player.getPositionY());
         }
         /*private void tmrGame_Tick(object sender, EventArgs e)
         {
