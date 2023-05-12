@@ -92,12 +92,21 @@ namespace Schnupperspiel
             buttonstop.Click += new System.EventHandler(game.btnStop_Click);
 
             game.add(buttonstop);
-
+            game.setTime(60);
+            game.setTimerGameInterval(1000);
 
             game.makeGame(this);
 
             gamePanel.add(createPlayer());
             KeyDown += new KeyEventHandler(movePlayer);
+
+
+
+            Timer tmrGame = game.tmrGame;
+            tmrGame.Tick += new System.EventHandler(this.tmrGame_Tick);
+            
+            tmrGame.Tick += new System.EventHandler(this.tmrGame_Tick);
+
 
 
         }
@@ -140,6 +149,13 @@ namespace Schnupperspiel
         }
         private void tmrGame_Tick(object sender, EventArgs e)
         {
+            if (game.getTime() == 0)
+            {
+                game.timeIsUp();
+                game.stopGame();
+            }
+              
+
         }
     }
 }
