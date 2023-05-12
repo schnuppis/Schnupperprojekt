@@ -20,12 +20,12 @@ namespace Schnupperspiel
         }
         private void loadGame(object sender, EventArgs e)
         {
-            
+
             game.setFormColour(200, 200, 200);
 
             gamePanel = new Panel();
-            gamePanel.setSize(800,500);
-            gamePanel.setColour(0,0,0);
+            gamePanel.setSize(800, 500);
+            gamePanel.setColour(0, 0, 0);
             game.setPanel(gamePanel);
 
 
@@ -35,7 +35,7 @@ namespace Schnupperspiel
 
             lableName.setText("Münzenjäger:");
             game.add(lableName);
-            
+
             Label Timelable = new Label();
             Timelable.setPosition(820, 10);
             Timelable.setSize(220, 55);
@@ -68,7 +68,7 @@ namespace Schnupperspiel
             Text HighscoreText = new Text();
             HighscoreText.setPosition(1050, 130);
             HighscoreText.setSize(94, 44);
-            
+
 
             game.add(TimeText);
             game.add(PointsText);
@@ -83,8 +83,36 @@ namespace Schnupperspiel
             game.add(buttongame);
 
 
+            Button buttonstop = new Button();
+            buttonstop.setPosition(423, 550);
+            buttonstop.setSize(181, 62);
+            buttonstop.setColour(255, 255, 255);
+            buttonstop.setText("Stop");
+            buttonstop.Enabled = false;
+            buttonstop.Click += new System.EventHandler(game.btnStop_Click);
+
+            game.add(buttonstop);
+
+
             game.makeGame(this);
+
+
+
         }
+
+
+        
+        private Player createPlayer()
+        {
+            Player player = new Player();
+            player.setSize(50, 50);
+            player.setSpeed(4);
+            player.setPosition(xPlayer, yPlayer);
+            return player;
+        }
+
+
+
         private void movePlayer(object sender, KeyEventArgs key)
         {
             /*Player player = gamePanel.getPlayer();
