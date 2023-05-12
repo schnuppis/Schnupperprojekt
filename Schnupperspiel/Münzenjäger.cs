@@ -19,11 +19,14 @@ namespace Schnupperspiel
         {
             InitializeComponent();
         }
+
+        private int xcoin;
+        private int ycoin;
         private void loadGame(object sender, EventArgs e)
         {
             
             game.setFormColour(200, 200, 200);
-
+           
             gamePanel = new Panel();
             gamePanel.setSize(800, 500);
             gamePanel.setColour(0, 0, 0);
@@ -35,13 +38,13 @@ namespace Schnupperspiel
             start.setPosition(12, 550);
             start.setSize(181, 62);
             start.setText("Start");
-            start.setColour(255, 255, 255);
+            start.setColour(0, 255, 0);
             start.Click += new System.EventHandler(game.btnStart_Click);
 
             stop.setPosition(423, 550);
             stop.setSize(181, 62);
             stop.setText("Stop");
-            stop.setColour(255, 255, 255);
+            stop.setColour(255, 0, 0);
             stop.Enabled = false;
             stop.Click += new System.EventHandler(game.btnStop_Click);
 
@@ -57,6 +60,7 @@ namespace Schnupperspiel
 
             highscoretext.setPosition(1050, 130);
             highscoretext.setSize(94, 44);
+
 
 
             Label name = new Label();
@@ -81,7 +85,15 @@ namespace Schnupperspiel
             highscore.setText("Higscore:");
 
             KeyDown += new KeyEventHandler(movePlayer);
-            
+
+            Timer tmrGame = game.tmrGame;
+            tmrGame.Tick += new System.EventHandler(this.tmrGame_Tick);
+
+            Timer tmrCoin = game.tmrCoin;
+            tmrCoin.Tick += new System.EventHandler(this.TimerCoin);
+
+            game.setTime(100);
+            game.setTimerGameInterval(1000);
             
             game.add(name);
             game.add(time);
@@ -114,6 +126,14 @@ namespace Schnupperspiel
 
             return player;
         }
+
+        private void Coin()
+        {
+            Coin coin = new Coin();
+            coin.setSize(20, 20);
+            coin.addToList(game.getCoinList());
+            coin.setPosition(xcoin, ycoin, gamePanel);
+        }
         private void movePlayer(object sender, KeyEventArgs key)
         {
             Player player = gamePanel.getPlayer();
@@ -137,8 +157,30 @@ namespace Schnupperspiel
             }
             player.setPosition(player.getPositionX(), player.getPositionY());
         }
-        /*private void tmrGame_Tick(object sender, EventArgs e)
+        private void tmrGame_Tick(object sender, EventArgs e)
         {
-        }*/
+            if (game.getTime() <= 0)
+            {
+                game.timeIsUp();
+                game.stopGame();
+            }
+    
+        }
+        private void TimerCoin(object sender, EventArgs e)
+        {
+            game.LookForCoin(10);
+            game.setScore(game.getPoints());
+            while(game.getCoinList().Count <= 20)
+            {
+                xcoin = random.Next(20, gamePanel.getWidth() - 40);
+                ycoin = random.Next(20, gamePanel.getHeight() - 40);
+
+                if (game.checkCoinPosition(xcoin, ycoin)) {
+                    Coin();
+                    
+                }
+            }
+        }
+
     }
 }

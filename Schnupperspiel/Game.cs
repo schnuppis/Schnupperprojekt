@@ -183,6 +183,15 @@ namespace Schnupperspiel
     public class Coin : GameObject
     {
 
+        public int CoinX()
+        {
+            return Left;
+        }
+
+        public int CoinY()
+        {
+            return Top;
+        }
         public void setSize(int w, int h)
         {
             Width = w;
