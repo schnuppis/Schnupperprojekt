@@ -166,7 +166,16 @@ namespace Schnupperspiel
         }
         private void tmrCoin_Tick(object sender, EventArgs e)
         {
+            while (game.getCoinList().Count <= 200)
+            {
+                xcoin = random.Next(20, gamePanel.getWidth()-40);
+                ycoin = random.Next(20, gamePanel.getHeight() - 40);
 
+                if (game.checkCoinPosition(ycoin, xcoin))
+                {
+                    createCoin();
+                }
+            }
         }
     }
 }
