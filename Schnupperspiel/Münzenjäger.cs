@@ -11,13 +11,29 @@ namespace Schnupperspiel
         private Random random = new Random();
         public static int xPlayer = 750;
         public static int yPlayer = 450;
-
+        public static int xCoin = 0;
+        public static int yCoin = 0;
         public Panel gamePanel;
 
         public frmGame()
         {
             InitializeComponent();
         }
+
+        private Player createPlayer()
+        {
+
+            Player player = new Player();
+            player.setSize(50,50);
+            player.setSpeed(4);
+            player.setPosition(xPlayer, yPlayer);
+            return player;
+
+        }
+
+        
+
+
         private void loadGame(object sender, EventArgs e)
         {
             
@@ -86,31 +102,93 @@ namespace Schnupperspiel
             stopButton.Click += new System.EventHandler(game.btnStop_Click);
             game.add(stopButton);
 
+            gamePanel.add(createPlayer());
+            KeyDown += new KeyEventHandler(movePlayer);
+
+            Timer tmrGame = game.tmrGame;
+            tmrGame.Tick += new System.EventHandler(this.tmrGame_Tick);
+
+            
+            game.setTime(120);
+            game.setTimerGameInterval(1000);
+
+            Timer tmrCoin = game.tmrCoin;
+            tmrCoin.Tick += new System.EventHandler(this.Coin);
+            
+            
+
 
             game.makeGame(this);
         }
         private void movePlayer(object sender, KeyEventArgs key)
         {
-            /*Player player = gamePanel.getPlayer();
+            Player player = gamePanel.getPlayer();
             if (key.KeyCode == Keys.D && game.checkPanelRight())
             {
-                
+                player.moveRight();
             }
             if (key.KeyCode == Keys.A && game.checkPanelLeft())
             {
-                
+                player.moveLeft();
             }
             if (key.KeyCode == Keys.W && game.checkPanelTop())
             {
-                
+                player.moveUp();
             }
             if (key.KeyCode == Keys.S && game.checkPanelBottom())
             {
-                
-            }*/
+                player.moveDown();
+            }
+            player.setPosition(player.getPositionX(), player.getPositionY());
+
         }
-        /*private void tmrGame_Tick(object sender, EventArgs e)
+        private void tmrGame_Tick(object sender, EventArgs e)
         {
-        }*/
+
+            if(game.getTime()  < 0)
+            {
+
+                game.timeIsUp();
+                game.stopGame();
+
+                Highscore();
+                
+            }
+
+        }
+
+        private void Coins()
+        {
+            Coin coin = new Coin();
+            coin.setSize(20, 20);
+            coin.addToList(game.getCoinList());
+            coin.setPosition(xCoin, yCoin, gamePanel);
+
+
+        }
+        private void Coin(object sender, EventArgs e)
+        {
+            while(game.getCoinList().Count < 100)
+            {
+                  xCoin = random.Next(20, gamePanel.getWidth()-40);
+                  yCoin = random.Next(20, gamePanel.getHeight()-40);
+
+                if (game.checkCoinPosition(xCoin, yCoin) )
+                {
+                    Coins();
+                }
+                
+            }
+            game.LookForCoin(10);
+            game.setScore(game.getPoints());
+        }
+        private void Highscore()
+        {
+
+            if (game.getHighscore() < game.getPoints())
+            {
+                game.setHighscore(game.getPoints());
+            }
+        }
     }
 }
