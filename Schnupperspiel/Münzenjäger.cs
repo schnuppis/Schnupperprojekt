@@ -1,5 +1,4 @@
 using System;
-using System.Drawing.Text;
 using System.Windows.Forms;
 
 // !! ALS STARTDATEI "Schnupperspiel.csproj - Debug|AnyCPU" auswählen !!
@@ -12,6 +11,8 @@ namespace Schnupperspiel
         private Random random = new Random();
         public static int xPlayer = 750;
         public static int yPlayer = 450;
+        public int CoinX = 10;
+        public int CoinY = 10;
 
         public Panel gamePanel;
 
@@ -21,12 +22,12 @@ namespace Schnupperspiel
         }
         private void loadGame(object sender, EventArgs e)
         {
-            
+
             game.setFormColour(200, 200, 200);
 
             gamePanel = new Panel();
-            gamePanel.setSize(800,500);
-            gamePanel.setColour(0,0,0);
+            gamePanel.setSize(800, 500);
+            gamePanel.setColour(0, 0, 0);
             game.setPanel(gamePanel);
 
             Label labelName = new Label();
@@ -40,7 +41,7 @@ namespace Schnupperspiel
             labelTime.setPosition(820, 10);
             labelTime.setText("Time");
             game.add(labelTime);
-            
+
 
             Label labelPoints = new Label();
             labelPoints.setSize(220, 55);
@@ -76,7 +77,7 @@ namespace Schnupperspiel
             buttonName.setText("Start");
             buttonName.setPosition(12, 550);
             buttonName.setSize(181, 62);
-            buttonName.setColour(255,255,255);
+            buttonName.setColour(255, 255, 255);
             buttonName.Click += new System.EventHandler(game.btnStart_Click);
             game.add(buttonName);
 
@@ -84,7 +85,7 @@ namespace Schnupperspiel
             buttonStop.setText("Stop");
             buttonStop.setPosition(423, 550);
             buttonStop.setSize(181, 62);
-            buttonStop.setColour(255, 255, 255) ;
+            buttonStop.setColour(255, 255, 255);
 
             buttonStop.Enabled = false;
             buttonStop.Click += new System.EventHandler(game.btnStop_Click);
@@ -93,15 +94,29 @@ namespace Schnupperspiel
             tmrGame.Tick += new System.EventHandler(this.tmrGame_Tick);
             game.setTime(60);
             game.setTimerGameInterval(1000);
+            gamePanel.add(createPlayer());
+
+            Timer tmrCoin = game.tmrCoin;
+            tmrCoin.Tick += new System.EventHandler(this.Coin);
 
             game.makeGame(this);
+
         }
+        private void createCoins()
+        {
+            Coin coin = new Coin();
+            coin.setSize(20, 20);
+            coin.addToList(game.getCoinList());
+            coin.setPosition(CoinX, CoinY, gamePanel);
+
+        }
+
 
         private Player createPlayer()
         {
             Player player = new Player();
-            
-           
+
+
             player.setPosition(xPlayer, yPlayer);
             player.setSize(50, 50);
             player.setSpeed(4);
@@ -111,29 +126,29 @@ namespace Schnupperspiel
 
 
 
-            private void movePlayer(object sender, KeyEventArgs key)
+        private void movePlayer(object sender, KeyEventArgs key)
         {
             Player player = gamePanel.getPlayer();
             if (key.KeyCode == Keys.D && game.checkPanelRight())
             {
                 player.moveRight();
 
-                
+
             }
             if (key.KeyCode == Keys.A && game.checkPanelLeft())
             {
                 player.moveLeft();
-                
+
             }
             if (key.KeyCode == Keys.W && game.checkPanelTop())
             {
                 player.moveUp();
-                
+
             }
             if (key.KeyCode == Keys.S && game.checkPanelBottom())
             {
                 player.moveDown();
-                
+
             }
             player.setPosition(player.getPositionX(), player.getPositionY());
         }
@@ -145,9 +160,31 @@ namespace Schnupperspiel
                 game.stopGame();
             }
         }
-       
-                 
-       }
-   
-        
+
+        private void Coin(object sender, EventArgs e)
+
+        {
+            game.LookForCoin(10);
+            game.setScore(game.getPoints());
+
+
+            while (game.getCoinList().Count < 20)
+            {
+               CoinX = random.Next(20, gamePanel.getWidth() - 40);
+               CoinY = random.Next(20, gamePanel.getHeight() - 40);
+                if (game.checkCoinPosition(CoinX, CoinY))
+                {
+                    createCoins();
+                }
+            }
+           
+
+        }
+
+
+
+
+    }
+    
+
 }
