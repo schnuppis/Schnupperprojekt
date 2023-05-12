@@ -191,7 +191,7 @@ namespace Schnupperspiel
         public void setPosition(int x, int y, Panel panel)
         {
             Visible = true;
-            Image = Image.FromFile("../Image/coin.PNG");
+            Image = Image.FromFile("../Image/coin.JPG");
             panel.add(this);
             Left = x;
             Top = y;
