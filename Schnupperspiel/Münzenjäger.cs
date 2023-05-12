@@ -1,4 +1,5 @@
 using System;
+using System.Deployment.Application;
 using System.Windows.Forms;
 
 // !! ALS STARTDATEI "Schnupperspiel.csproj - Debug|AnyCPU" auswählen !!
@@ -31,70 +32,98 @@ namespace Schnupperspiel
             Label labelScoreboard = new Label();
             labelScoreboard.setPosition(820, 480);
             labelScoreboard.setSize(250,55);
-            labelScoreboard.setText("Scoreboard.");
+            labelScoreboard.setText("Scoreboard:");
             game.add(labelScoreboard);
 
             Label labelTime = new Label();
             labelTime.setPosition(820, 10);
             labelTime.setSize(220, 55);
-            labelTime.setText("Time.");
+            labelTime.setText("Time:");
             game.add(labelTime);
             
             Label labelPoints = new Label();
             labelPoints.setPosition(820, 70);
             labelPoints.setSize(220, 55);
-            labelPoints.setText("Points.");
+            labelPoints.setText("Points:");
             game.add(labelPoints);
 
             Label labelhighscore = new Label();
             labelhighscore.setPosition(820, 130);
             labelhighscore.setSize(220, 55);
-            labelhighscore.setText("Highscore.");
+            labelhighscore.setText("Highscore:");
             game.add(labelhighscore);
             Text labelTime2 = new Text();
             labelTime2.setPosition(820, 10);
             labelTime2.setSize(220, 55);
             // labelTime2.setText("Münzenjäger.");
             game.add(labelTime2);
-            Label labelPoints = new Label();
+            Label TextPoints = new Label();
 
-            labelPonts.setPosition(820, 70);
+            labelPoints.setPosition(820, 70);
             labelPoints.setSize(220, 55);
-            labelPoints.setText("Münzenjäger.");
+            
             game.add(labelPoints);
 
-            Label labelhighscore = new Label();
+            Label Labelhighscore = new Label();
             labelhighscore.setPosition(820, 130);
             labelhighscore.setSize(220, 55);
-            labelhighscore.setText("Münzenjäger.");
+            labelhighscore.setText("Highscore:");
             game.add(labelhighscore);
 
             game.makeGame(this);
 
             Text textTime = new Text();
 
-            Label labeltime = new Label();
-            labeltime.setPosition(1050, 10);
-            labeltime.setSize(94, 44);
-            labeltime.setText("Time.");
-            game.add(labeltime); 
+            Text Texttime = new Text();
+            Texttime.setPosition(1050, 10);
+            Texttime.setSize(94, 44);
+            game.add(Texttime); 
             
-            Label labelpoints = new Label();
-            labelpoints.setPosition(1050, 70);
-            labelpoints.setSize(94, 44);
-            labelpoints.setText("Points.");
-            game.add(labelpoints); 
+            Text Textpoints = new Text();
+            Textpoints.setPosition(1050, 70);
+            Textpoints.setSize(94, 44);
+            game.add(Textpoints); 
             
-            Label labelhighscore = new Label();
-            labelhighscore.setPosition(1050, 130);
-            labelhighscore.setSize(94, 44);
-            labelhighscore.setText("Highscore.");
-            game.add(labelhighscore);
+            Text Texthighscore = new Text();
+            Texthighscore.setPosition(1050, 130);
+            Texthighscore.setSize(94, 44);
+            game.add(Texthighscore);
 
+         
+
+            Button buttonstart = new Button();
+            buttonstart.setPosition(12, 550);
+            buttonstart.setSize(181, 62);
+            buttonstart.setColour(255, 255, 255);
+            buttonstart.setText("Start");
+            game.add(buttonstart);
             game.makeGame(this);
-            
+
+            buttonstart.Click += new System.EventHandler(game.btnStart_Click);
+            Button buttonstop = new Button();
+            buttonstop.setPosition(423, 550);
+            buttonstop.setSize(181, 62);
+            buttonstop.setColour(255,255,255);
+            buttonstop.setText("Stop");
+            buttonstop.Enabled = false;
+            buttonstop.Click += new System.EventHandler(game.btnStop_Click);
+
         }
-       
+       private Player createPlayer()
+        {
+            Player player = new Player();
+            player.setSize()
+            player.setSpeed()
+            player.setPosition()
+
+
+
+
+
+            return player;
+                
+                
+                }
         private void movePlayer(object sender, KeyEventArgs key)
         {
             /*Player player = gamePanel.getPlayer();
