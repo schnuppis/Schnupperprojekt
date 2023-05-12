@@ -18,6 +18,10 @@ namespace Schnupperspiel
         {
             InitializeComponent();
         }
+
+        private int xcoin;
+        private int ycoin;
+
         private void loadGame(object sender, EventArgs e)
         {
             
@@ -91,6 +95,9 @@ namespace Schnupperspiel
             Timer tmrGame = game.tmrGame;
             tmrGame.Tick += new System.EventHandler(this.tmrGame_Tick);
 
+            Timer tmrCoin = game.tmrCoin;
+            game.tmrCoin.Tick += new System.EventHandler(this.Coinclass);
+
             game.setTime(60);
             game.setTimerGameInterval(1000);
 
@@ -135,9 +142,50 @@ namespace Schnupperspiel
             
             if (game.getTime() == 0)
             {
+                tmrGame_Tick();
                 game.timeIsUp();
                 game.stopGame();
             }
         }
+
+        private void Coins()
+        {
+            Coin coin = new Coin();
+            coin.setSize(20,20);
+            coin.setPosition(xcoin, ycoin, gamePanel);
+            coin.addToList(game.getCoinList());
+        }
+
+        private void Coinclass(object sender, EventArgs e) 
+        {
+            
+
+            game.LookForCoin(10);
+            
+            
+
+            while(game.getCoinList().Count < 10)
+            {
+                xcoin = random.Next(20, gamePanel.getWidth() - 40);
+                ycoin = random.Next(20, gamePanel.getHeight() - 40);
+
+                if(game.checkCoinPosition(xcoin, ycoin))
+                {
+                    Coins();
+                    game.setScore(game.getPoints());
+                }
+
+            }
+        }
+        private void tmrGame_Tick() {
+
+            if (game.getHighscore() > game.getPoints()) 
+            {
+                game.setHighscore(game.getPoints());
+            }
+
+        }
+        
+
     }
 }
