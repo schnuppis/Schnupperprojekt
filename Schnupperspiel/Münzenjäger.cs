@@ -88,6 +88,12 @@ namespace Schnupperspiel
 
             KeyDown += new KeyEventHandler(movePlayer);
 
+            Timer tmrGame = game.tmrGame;
+            tmrGame.Tick += new System.EventHandler(this.tmrGame_Tick);
+
+            game.setTime(60);
+            game.setTimerGameInterval(1000);
+
             game.add(startButton);
             game.add(stopButton);
             gamePanel.add(createPlayer());
@@ -124,8 +130,14 @@ namespace Schnupperspiel
             }
             player.setPosition(player.getPositionX(), player.getPositionY());
         }
-        /*private void tmrGame_Tick(object sender, EventArgs e)
+        private void tmrGame_Tick(object sender, EventArgs e)
         {
-        }*/
+            
+            if (game.getTime() == 0)
+            {
+                game.timeIsUp();
+                game.stopGame();
+            }
+        }
     }
 }
