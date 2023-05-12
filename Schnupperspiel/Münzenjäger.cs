@@ -56,6 +56,32 @@ namespace Schnupperspiel
             game.add(Highscorelable);
 
 
+            Text TimeText = new Text();
+            TimeText.setPosition(1050, 10);
+            TimeText.setSize(94, 44);
+
+
+            Text PointsText = new Text();
+            PointsText.setPosition(1050, 70);
+            PointsText.setSize(94, 44);
+
+            Text HighscoreText = new Text();
+            HighscoreText.setPosition(1050, 130);
+            HighscoreText.setSize(94, 44);
+            
+
+            game.add(TimeText);
+            game.add(PointsText);
+            game.add(HighscoreText);
+
+            Button buttongame = new Button();
+            buttongame.setPosition(12, 550);
+            buttongame.setSize(181, 62);
+            buttongame.setColour(255, 255, 255);
+            buttongame.setText("Start");
+            buttongame.Click += new System.EventHandler(game.btnStart_Click);
+            game.add(buttongame);
+
 
             game.makeGame(this);
         }
