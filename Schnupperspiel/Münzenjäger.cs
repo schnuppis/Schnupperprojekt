@@ -1,4 +1,5 @@
 using System;
+using System.Data;
 using System.Windows.Forms;
 
 // !! ALS STARTDATEI "Schnupperspiel.csproj - Debug|AnyCPU" auswählen !!
@@ -57,6 +58,11 @@ namespace Schnupperspiel
             textTime.setSize(94, 44);
             game.addTimeText(textTime);
 
+            Timer tmrGame = game.tmrGame;
+            tmrGame.Tick += new System.EventHandler(this.tmrGame_Tick);
+            game.setTime(1000);
+            game.setTimerGameInterval(100);
+
             Text textPoints = new Text();
             textPoints.setPosition(1050, 70);
             textPoints.setSize(94, 44);
@@ -104,22 +110,31 @@ namespace Schnupperspiel
             if (key.KeyCode == Keys.D && game.checkPanelRight())
             {
                 player.moveRight();
+                player.getPositionX();
+                player.getPositionY();
             }
             if (key.KeyCode == Keys.A && game.checkPanelLeft())
             {
                 player.moveLeft();
+                player.getPositionX();
+                player.getPositionY();
             }
             if (key.KeyCode == Keys.W && game.checkPanelTop())
             {
                 player.moveUp();
+                player.getPositionX();
+                player.getPositionY();
             }
             if (key.KeyCode == Keys.S && game.checkPanelBottom())
             {
                 player.moveDown();
+                player.getPositionX();
+                player.getPositionY();
             }
+            player.setPosition(player.getPositionX(), player.getPositionY());
         }
-        /*private void tmrGame_Tick(object sender, EventArgs e)
+        private void tmrGame_Tick(object sender, EventArgs e)
         {
-        }*/
+        }
     }
 }
