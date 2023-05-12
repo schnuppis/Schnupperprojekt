@@ -1,0 +1,11 @@
+C:\git\2.0\Schnupperspiel\bin\Release\Schnupperspiel.exe.config
+C:\git\2.0\Schnupperspiel\bin\Release\Schnupperspiel.exe
+C:\git\2.0\Schnupperspiel\bin\Release\Schnupperspiel.pdb
+C:\git\2.0\Schnupperspiel\obj\Release\Schnupperspiel.csproj.AssemblyReference.cache
+C:\git\2.0\Schnupperspiel\obj\Release\Schnupperspiel.csproj.SuggestedBindingRedirects.cache
+C:\git\2.0\Schnupperspiel\obj\Release\Schnupperspiel.frmGame.resources
+C:\git\2.0\Schnupperspiel\obj\Release\Schnupperspiel.Properties.Resources.resources
+C:\git\2.0\Schnupperspiel\obj\Release\Schnupperspiel.csproj.GenerateResource.cache
+C:\git\2.0\Schnupperspiel\obj\Release\Schnupperspiel.csproj.CoreCompileInputs.cache
+C:\git\2.0\Schnupperspiel\obj\Release\Schnupperspiel.exe
+C:\git\2.0\Schnupperspiel\obj\Release\Schnupperspiel.pdb

@@ -1,0 +1,138 @@
+C:\Users\Softwareschmiede\source\repos\Schnupperspiel\Schnupperspiel\bin\Debug\Schnupperspiel.exe.config
+C:\Users\Softwareschmiede\source\repos\Schnupperspiel\Schnupperspiel\bin\Debug\Schnupperspiel.exe
+C:\Users\Softwareschmiede\source\repos\Schnupperspiel\Schnupperspiel\bin\Debug\Schnupperspiel.pdb
+C:\Users\Softwareschmiede\source\repos\Schnupperspiel\Schnupperspiel\obj\Debug\Schnupperspiel.csproj.AssemblyReference.cache
+C:\Users\Softwareschmiede\source\repos\Schnupperspiel\Schnupperspiel\obj\Debug\Schnupperspiel.frmGame.resources
+C:\Users\Softwareschmiede\source\repos\Schnupperspiel\Schnupperspiel\obj\Debug\Schnupperspiel.Properties.Resources.resources
+C:\Users\Softwareschmiede\source\repos\Schnupperspiel\Schnupperspiel\obj\Debug\Schnupperspiel.csproj.GenerateResource.cache
+C:\Users\Softwareschmiede\source\repos\Schnupperspiel\Schnupperspiel\obj\Debug\Schnupperspiel.csproj.CoreCompileInputs.cache
+C:\Users\Softwareschmiede\source\repos\Schnupperspiel\Schnupperspiel\obj\Debug\Schnupperspiel.exe
+C:\Users\Softwareschmiede\source\repos\Schnupperspiel\Schnupperspiel\obj\Debug\Schnupperspiel.pdb
+C:\Users\Softwareschmiede\Source\Repos\schnupperprojekt\Schnupperspiel\obj\Debug\Schnupperspiel.csproj.AssemblyReference.cache
+C:\Users\Softwareschmiede\Source\Repos\schnupperprojekt\Schnupperspiel\obj\Debug\Schnupperspiel.frmGame.resources
+C:\Users\Softwareschmiede\Source\Repos\schnupperprojekt\Schnupperspiel\obj\Debug\Schnupperspiel.Properties.Resources.resources
+C:\Users\Softwareschmiede\Source\Repos\schnupperprojekt\Schnupperspiel\obj\Debug\Schnupperspiel.csproj.GenerateResource.cache
+C:\Users\Softwareschmiede\Source\Repos\schnupperprojekt\Schnupperspiel\obj\Debug\Schnupperspiel.csproj.CoreCompileInputs.cache
+C:\Users\Softwareschmiede\Source\Repos\schnupperprojekt\Schnupperspiel\obj\Debug\Schnupperspiel.exe
+C:\Users\Softwareschmiede\Source\Repos\schnupperprojekt\Schnupperspiel\obj\Debug\Schnupperspiel.pdb
+C:\Users\Softwareschmiede\Source\Repos\schnupperprojekt\Schnupperspiel\bin\Debug\Schnupperspiel.exe.config
+C:\Users\Softwareschmiede\Source\Repos\schnupperprojekt\Schnupperspiel\bin\Debug\Schnupperspiel.exe
+C:\Users\Softwareschmiede\Source\Repos\schnupperprojekt\Schnupperspiel\bin\Debug\Schnupperspiel.pdb
+C:\Users\Softwareschmiede\source\repos\Schnupperspiel\schnupperprojekt\Schnupperspiel\bin\Debug\Schnupperspiel.exe.config
+C:\Users\Softwareschmiede\source\repos\Schnupperspiel\schnupperprojekt\Schnupperspiel\bin\Debug\Schnupperspiel.exe
+C:\Users\Softwareschmiede\source\repos\Schnupperspiel\schnupperprojekt\Schnupperspiel\bin\Debug\Schnupperspiel.pdb
+C:\Users\Softwareschmiede\source\repos\Schnupperspiel\schnupperprojekt\Schnupperspiel\obj\Debug\Schnupperspiel.csproj.AssemblyReference.cache
+C:\Users\Softwareschmiede\source\repos\Schnupperspiel\schnupperprojekt\Schnupperspiel\obj\Debug\Schnupperspiel.frmGame.resources
+C:\Users\Softwareschmiede\source\repos\Schnupperspiel\schnupperprojekt\Schnupperspiel\obj\Debug\Schnupperspiel.Properties.Resources.resources
+C:\Users\Softwareschmiede\source\repos\Schnupperspiel\schnupperprojekt\Schnupperspiel\obj\Debug\Schnupperspiel.csproj.GenerateResource.cache
+C:\Users\Softwareschmiede\source\repos\Schnupperspiel\schnupperprojekt\Schnupperspiel\obj\Debug\Schnupperspiel.csproj.CoreCompileInputs.cache
+C:\Users\Softwareschmiede\source\repos\Schnupperspiel\schnupperprojekt\Schnupperspiel\obj\Debug\Schnupperspiel.exe
+C:\Users\Softwareschmiede\source\repos\Schnupperspiel\schnupperprojekt\Schnupperspiel\obj\Debug\Schnupperspiel.pdb
+\\adb.intra.admin.ch\Userhome$\All\data\Documents\schnupperspiel_geht nid\schnupperprojekt\Schnupperspiel\obj\Debug\Schnupperspiel.frmGame.resources
+\\adb.intra.admin.ch\Userhome$\All\data\Documents\schnupperspiel_geht nid\schnupperprojekt\Schnupperspiel\obj\Debug\Schnupperspiel.Properties.Resources.resources
+\\adb.intra.admin.ch\Userhome$\All\data\Documents\schnupperspiel_geht nid\schnupperprojekt\Schnupperspiel\obj\Debug\Schnupperspiel.csproj.GenerateResource.Cache
+\\adb.intra.admin.ch\Userhome$\All\data\Documents\schnupperspiel_geht nid\schnupperprojekt\Schnupperspiel\obj\Debug\Schnupperspiel.exe
+\\adb.intra.admin.ch\Userhome$\All\data\Documents\schnupperspiel_geht nid\schnupperprojekt\Schnupperspiel\obj\Debug\Schnupperspiel.pdb
+\\adb.intra.admin.ch\Userhome$\All\data\Documents\schnupperspiel_geht nid\schnupperprojekt\Schnupperspiel\bin\Debug\Schnupperspiel.exe.config
+\\adb.intra.admin.ch\Userhome$\All\data\Documents\schnupperspiel_geht nid\schnupperprojekt\Schnupperspiel\bin\Debug\Schnupperspiel.exe
+\\adb.intra.admin.ch\Userhome$\All\data\Documents\schnupperspiel_geht nid\schnupperprojekt\Schnupperspiel\bin\Debug\Schnupperspiel.pdb
+\\adb.intra.admin.ch\Userhome$\All\data\Documents\schnupperspiel_geht nid\schnupperprojekt\Schnupperspiel\obj\Debug\Schnupperspiel.csprojResolveAssemblyReference.cache
+\\adb.intra.admin.ch\Userhome$\All\data\Documents\second branch\schnupperprojekt\Schnupperspiel\obj\Debug\Schnupperspiel.csprojResolveAssemblyReference.cache
+\\adb.intra.admin.ch\Userhome$\All\data\Documents\second branch\schnupperprojekt\Schnupperspiel\obj\Debug\Schnupperspiel.frmGame.resources
+\\adb.intra.admin.ch\Userhome$\All\data\Documents\second branch\schnupperprojekt\Schnupperspiel\obj\Debug\Schnupperspiel.Properties.Resources.resources
+\\adb.intra.admin.ch\Userhome$\All\data\Documents\second branch\schnupperprojekt\Schnupperspiel\obj\Debug\Schnupperspiel.csproj.GenerateResource.Cache
+\\adb.intra.admin.ch\Userhome$\All\data\Documents\second branch\schnupperprojekt\Schnupperspiel\obj\Debug\Schnupperspiel.exe
+\\adb.intra.admin.ch\Userhome$\All\data\Documents\second branch\schnupperprojekt\Schnupperspiel\obj\Debug\Schnupperspiel.pdb
+\\adb.intra.admin.ch\Userhome$\All\data\Documents\second branch\schnupperprojekt\Schnupperspiel\bin\Debug\Schnupperspiel.exe.config
+\\adb.intra.admin.ch\Userhome$\All\data\Documents\second branch\schnupperprojekt\Schnupperspiel\bin\Debug\Schnupperspiel.exe
+\\adb.intra.admin.ch\Userhome$\All\data\Documents\second branch\schnupperprojekt\Schnupperspiel\bin\Debug\Schnupperspiel.pdb
+\\adb.intra.admin.ch\Userhome$\All\data\Documents\schnupperspiel erste_schnuppersicht\schnupperprojekt\Schnupperspiel\bin\Debug\Schnupperspiel.exe.config
+\\adb.intra.admin.ch\Userhome$\All\data\Documents\schnupperspiel erste_schnuppersicht\schnupperprojekt\Schnupperspiel\bin\Debug\Schnupperspiel.exe
+\\adb.intra.admin.ch\Userhome$\All\data\Documents\schnupperspiel erste_schnuppersicht\schnupperprojekt\Schnupperspiel\bin\Debug\Schnupperspiel.pdb
+\\adb.intra.admin.ch\Userhome$\All\data\Documents\schnupperspiel erste_schnuppersicht\schnupperprojekt\Schnupperspiel\obj\Debug\Schnupperspiel.csprojResolveAssemblyReference.cache
+\\adb.intra.admin.ch\Userhome$\All\data\Documents\schnupperspiel erste_schnuppersicht\schnupperprojekt\Schnupperspiel\obj\Debug\Schnupperspiel.frmGame.resources
+\\adb.intra.admin.ch\Userhome$\All\data\Documents\schnupperspiel erste_schnuppersicht\schnupperprojekt\Schnupperspiel\obj\Debug\Schnupperspiel.Properties.Resources.resources
+\\adb.intra.admin.ch\Userhome$\All\data\Documents\schnupperspiel erste_schnuppersicht\schnupperprojekt\Schnupperspiel\obj\Debug\Schnupperspiel.csproj.GenerateResource.Cache
+\\adb.intra.admin.ch\Userhome$\All\data\Documents\schnupperspiel erste_schnuppersicht\schnupperprojekt\Schnupperspiel\obj\Debug\Schnupperspiel.exe
+\\adb.intra.admin.ch\Userhome$\All\data\Documents\schnupperspiel erste_schnuppersicht\schnupperprojekt\Schnupperspiel\obj\Debug\Schnupperspiel.pdb
+\\adb.intra.admin.ch\Userhome$\All\data\Documents\neu_schnupper\schnupperprojekt\Schnupperspiel\bin\Debug\Schnupperspiel.exe.config
+\\adb.intra.admin.ch\Userhome$\All\data\Documents\neu_schnupper\schnupperprojekt\Schnupperspiel\bin\Debug\Schnupperspiel.exe
+\\adb.intra.admin.ch\Userhome$\All\data\Documents\neu_schnupper\schnupperprojekt\Schnupperspiel\bin\Debug\Schnupperspiel.pdb
+\\adb.intra.admin.ch\Userhome$\All\data\Documents\neu_schnupper\schnupperprojekt\Schnupperspiel\obj\Debug\Schnupperspiel.csprojResolveAssemblyReference.cache
+\\adb.intra.admin.ch\Userhome$\All\data\Documents\neu_schnupper\schnupperprojekt\Schnupperspiel\obj\Debug\Schnupperspiel.frmGame.resources
+\\adb.intra.admin.ch\Userhome$\All\data\Documents\neu_schnupper\schnupperprojekt\Schnupperspiel\obj\Debug\Schnupperspiel.Properties.Resources.resources
+\\adb.intra.admin.ch\Userhome$\All\data\Documents\neu_schnupper\schnupperprojekt\Schnupperspiel\obj\Debug\Schnupperspiel.csproj.GenerateResource.Cache
+\\adb.intra.admin.ch\Userhome$\All\data\Documents\neu_schnupper\schnupperprojekt\Schnupperspiel\obj\Debug\Schnupperspiel.exe
+\\adb.intra.admin.ch\Userhome$\All\data\Documents\neu_schnupper\schnupperprojekt\Schnupperspiel\obj\Debug\Schnupperspiel.pdb
+\\adb.intra.admin.ch\Userhome$\All\data\Documents\Lösung\schnupperprojekt\Schnupperspiel\bin\Debug\Schnupperspiel.exe.config
+\\adb.intra.admin.ch\Userhome$\All\data\Documents\Lösung\schnupperprojekt\Schnupperspiel\bin\Debug\Schnupperspiel.exe
+\\adb.intra.admin.ch\Userhome$\All\data\Documents\Lösung\schnupperprojekt\Schnupperspiel\bin\Debug\Schnupperspiel.pdb
+\\adb.intra.admin.ch\Userhome$\All\data\Documents\Lösung\schnupperprojekt\Schnupperspiel\obj\Debug\Schnupperspiel.csprojResolveAssemblyReference.cache
+\\adb.intra.admin.ch\Userhome$\All\data\Documents\Lösung\schnupperprojekt\Schnupperspiel\obj\Debug\Schnupperspiel.frmGame.resources
+\\adb.intra.admin.ch\Userhome$\All\data\Documents\Lösung\schnupperprojekt\Schnupperspiel\obj\Debug\Schnupperspiel.Properties.Resources.resources
+\\adb.intra.admin.ch\Userhome$\All\data\Documents\Lösung\schnupperprojekt\Schnupperspiel\obj\Debug\Schnupperspiel.csproj.GenerateResource.Cache
+\\adb.intra.admin.ch\Userhome$\All\data\Documents\Lösung\schnupperprojekt\Schnupperspiel\obj\Debug\Schnupperspiel.exe
+\\adb.intra.admin.ch\Userhome$\All\data\Documents\Lösung\schnupperprojekt\Schnupperspiel\obj\Debug\Schnupperspiel.pdb
+C:\Users\bula0\Desktop\Neuer Ordner (3)\schnupperprojekt\Schnupperspiel\bin\Debug\Schnupperspiel.exe.config
+C:\Users\bula0\Desktop\Neuer Ordner (3)\schnupperprojekt\Schnupperspiel\bin\Debug\Schnupperspiel.exe
+C:\Users\bula0\Desktop\Neuer Ordner (3)\schnupperprojekt\Schnupperspiel\bin\Debug\Schnupperspiel.pdb
+C:\Users\bula0\Desktop\Neuer Ordner (3)\schnupperprojekt\Schnupperspiel\obj\Debug\Schnupperspiel.csprojAssemblyReference.cache
+C:\Users\bula0\Desktop\Neuer Ordner (3)\schnupperprojekt\Schnupperspiel\obj\Debug\Schnupperspiel.frmGame.resources
+C:\Users\bula0\Desktop\Neuer Ordner (3)\schnupperprojekt\Schnupperspiel\obj\Debug\Schnupperspiel.Properties.Resources.resources
+C:\Users\bula0\Desktop\Neuer Ordner (3)\schnupperprojekt\Schnupperspiel\obj\Debug\Schnupperspiel.csproj.GenerateResource.cache
+C:\Users\bula0\Desktop\Neuer Ordner (3)\schnupperprojekt\Schnupperspiel\obj\Debug\Schnupperspiel.csproj.CoreCompileInputs.cache
+C:\Users\bula0\Desktop\Neuer Ordner (3)\schnupperprojekt\Schnupperspiel\obj\Debug\Schnupperspiel.exe
+C:\Users\bula0\Desktop\Neuer Ordner (3)\schnupperprojekt\Schnupperspiel\obj\Debug\Schnupperspiel.pdb
+\\adb.intra.admin.ch\Userhome$\All\data\Documents\Münzenjäger admin\schnupperprojekt\Schnupperspiel\bin\Debug\Schnupperspiel.exe.config
+\\adb.intra.admin.ch\Userhome$\All\data\Documents\Münzenjäger admin\schnupperprojekt\Schnupperspiel\bin\Debug\Schnupperspiel.exe
+\\adb.intra.admin.ch\Userhome$\All\data\Documents\Münzenjäger admin\schnupperprojekt\Schnupperspiel\bin\Debug\Schnupperspiel.pdb
+\\adb.intra.admin.ch\Userhome$\All\data\Documents\Münzenjäger admin\schnupperprojekt\Schnupperspiel\obj\Debug\Schnupperspiel.csprojResolveAssemblyReference.cache
+\\adb.intra.admin.ch\Userhome$\All\data\Documents\Münzenjäger admin\schnupperprojekt\Schnupperspiel\obj\Debug\Schnupperspiel.frmGame.resources
+\\adb.intra.admin.ch\Userhome$\All\data\Documents\Münzenjäger admin\schnupperprojekt\Schnupperspiel\obj\Debug\Schnupperspiel.Properties.Resources.resources
+\\adb.intra.admin.ch\Userhome$\All\data\Documents\Münzenjäger admin\schnupperprojekt\Schnupperspiel\obj\Debug\Schnupperspiel.csproj.GenerateResource.Cache
+\\adb.intra.admin.ch\Userhome$\All\data\Documents\Münzenjäger admin\schnupperprojekt\Schnupperspiel\obj\Debug\Schnupperspiel.exe
+\\adb.intra.admin.ch\Userhome$\All\data\Documents\Münzenjäger admin\schnupperprojekt\Schnupperspiel\obj\Debug\Schnupperspiel.pdb
+C:\git\schnupperprojekt-Admin\schnupperprojekt-Admin\Schnupperspiel\bin\Debug\Schnupperspiel.exe.config
+C:\git\schnupperprojekt-Admin\schnupperprojekt-Admin\Schnupperspiel\bin\Debug\Schnupperspiel.exe
+C:\git\schnupperprojekt-Admin\schnupperprojekt-Admin\Schnupperspiel\bin\Debug\Schnupperspiel.pdb
+C:\git\schnupperprojekt-Admin\schnupperprojekt-Admin\Schnupperspiel\obj\Debug\Schnupperspiel.csproj.AssemblyReference.cache
+C:\git\schnupperprojekt-Admin\schnupperprojekt-Admin\Schnupperspiel\obj\Debug\Schnupperspiel.csproj.SuggestedBindingRedirects.cache
+C:\git\schnupperprojekt-Admin\schnupperprojekt-Admin\Schnupperspiel\obj\Debug\Schnupperspiel.frmGame.resources
+C:\git\schnupperprojekt-Admin\schnupperprojekt-Admin\Schnupperspiel\obj\Debug\Schnupperspiel.Properties.Resources.resources
+C:\git\schnupperprojekt-Admin\schnupperprojekt-Admin\Schnupperspiel\obj\Debug\Schnupperspiel.csproj.GenerateResource.cache
+C:\git\schnupperprojekt-Admin\schnupperprojekt-Admin\Schnupperspiel\obj\Debug\Schnupperspiel.csproj.CoreCompileInputs.cache
+C:\git\schnupperprojekt-Admin\schnupperprojekt-Admin\Schnupperspiel\obj\Debug\Schnupperspiel.exe
+C:\git\schnupperprojekt-Admin\schnupperprojekt-Admin\Schnupperspiel\obj\Debug\Schnupperspiel.pdb
+C:\git\2.0\Schnupperspiel\bin\Debug\Schnupperspiel.exe.config
+C:\git\2.0\Schnupperspiel\bin\Debug\Schnupperspiel.exe
+C:\git\2.0\Schnupperspiel\bin\Debug\Schnupperspiel.pdb
+C:\git\2.0\Schnupperspiel\obj\Debug\Schnupperspiel.csproj.AssemblyReference.cache
+C:\git\2.0\Schnupperspiel\obj\Debug\Schnupperspiel.csproj.SuggestedBindingRedirects.cache
+C:\git\2.0\Schnupperspiel\obj\Debug\Schnupperspiel.frmGame.resources
+C:\git\2.0\Schnupperspiel\obj\Debug\Schnupperspiel.Properties.Resources.resources
+C:\git\2.0\Schnupperspiel\obj\Debug\Schnupperspiel.csproj.GenerateResource.cache
+C:\git\2.0\Schnupperspiel\obj\Debug\Schnupperspiel.csproj.CoreCompileInputs.cache
+C:\git\2.0\Schnupperspiel\obj\Debug\Schnupperspiel.exe
+C:\git\2.0\Schnupperspiel\obj\Debug\Schnupperspiel.pdb
+C:\git\2.0 - Kopie\Schnupperspiel\bin\Debug\Schnupperspiel.exe.config
+C:\git\2.0 - Kopie\Schnupperspiel\bin\Debug\Schnupperspiel.exe
+C:\git\2.0 - Kopie\Schnupperspiel\bin\Debug\Schnupperspiel.pdb
+C:\git\2.0 - Kopie\Schnupperspiel\obj\Debug\Schnupperspiel.csproj.AssemblyReference.cache
+C:\git\2.0 - Kopie\Schnupperspiel\obj\Debug\Schnupperspiel.csproj.SuggestedBindingRedirects.cache
+C:\git\2.0 - Kopie\Schnupperspiel\obj\Debug\Schnupperspiel.frmGame.resources
+C:\git\2.0 - Kopie\Schnupperspiel\obj\Debug\Schnupperspiel.Properties.Resources.resources
+C:\git\2.0 - Kopie\Schnupperspiel\obj\Debug\Schnupperspiel.csproj.GenerateResource.cache
+C:\git\2.0 - Kopie\Schnupperspiel\obj\Debug\Schnupperspiel.csproj.CoreCompileInputs.cache
+C:\git\2.0 - Kopie\Schnupperspiel\obj\Debug\Schnupperspiel.exe
+C:\git\2.0 - Kopie\Schnupperspiel\obj\Debug\Schnupperspiel.pdb
+C:\Users\Softwareschmiede\Desktop\dev\Schnupperprojekt\Schnupperspiel\bin\Debug\Schnupperspiel.exe.config
+C:\Users\Softwareschmiede\Desktop\dev\Schnupperprojekt\Schnupperspiel\bin\Debug\Schnupperspiel.exe
+C:\Users\Softwareschmiede\Desktop\dev\Schnupperprojekt\Schnupperspiel\bin\Debug\Schnupperspiel.pdb
+C:\Users\Softwareschmiede\Desktop\dev\Schnupperprojekt\Schnupperspiel\obj\Debug\Schnupperspiel.csproj.AssemblyReference.cache
+C:\Users\Softwareschmiede\Desktop\dev\Schnupperprojekt\Schnupperspiel\obj\Debug\Schnupperspiel.csproj.SuggestedBindingRedirects.cache
+C:\Users\Softwareschmiede\Desktop\dev\Schnupperprojekt\Schnupperspiel\obj\Debug\Schnupperspiel.frmGame.resources
+C:\Users\Softwareschmiede\Desktop\dev\Schnupperprojekt\Schnupperspiel\obj\Debug\Schnupperspiel.Properties.Resources.resources
+C:\Users\Softwareschmiede\Desktop\dev\Schnupperprojekt\Schnupperspiel\obj\Debug\Schnupperspiel.csproj.GenerateResource.cache
+C:\Users\Softwareschmiede\Desktop\dev\Schnupperprojekt\Schnupperspiel\obj\Debug\Schnupperspiel.csproj.CoreCompileInputs.cache
+C:\Users\Softwareschmiede\Desktop\dev\Schnupperprojekt\Schnupperspiel\obj\Debug\Schnupperspiel.exe
+C:\Users\Softwareschmiede\Desktop\dev\Schnupperprojekt\Schnupperspiel\obj\Debug\Schnupperspiel.pdb

@@ -19,7 +19,7 @@ namespace Schnupperspiel
         public static int yEnemy = 0;
         public Panel gamePanel;
         public Wall wall;
-        public int enemycount = 5;
+        public int enemycount = 10;
 
         public frmGame()
         {
@@ -191,7 +191,7 @@ namespace Schnupperspiel
         private void tmrGame_Tick(object sender, EventArgs e)
         {
 
-            if(gamePanel.getEnemys().Count < 5)
+            if(gamePanel.getEnemys().Count < enemycount)
             {
                 xEnemy = random.Next(20, gamePanel.getWidth() - 40);
                 yEnemy = random.Next(20, gamePanel.getHeight() - 40);
