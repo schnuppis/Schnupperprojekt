@@ -175,7 +175,7 @@ namespace Schnupperspiel
 
 
 
-            while (game.getCoinList().Count < 10)
+            while (game.getCoinList().Count < 25)
             {
                 xcoin = random.Next(20, gamePanel.getWidth() - 40);
                 ycoin = random.Next(20, gamePanel.getHeight() - 40);
