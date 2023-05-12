@@ -77,44 +77,56 @@ namespace Schnupperspiel
             buttonName.setColour(255, 255, 255);
            
             buttonName.Click += new System.EventHandler(game.btnStart_Click);
-           
+            game.add(buttonName);
             Button ButtonStop = new Button();
             ButtonStop.setPosition(423, 550);
             ButtonStop.setSize(181, 62);
             ButtonStop.setColour(255, 255, 255);
-            Button.setText("Stop");
+            ButtonStop.setText("Stop");
 
-            buttonStop.Enabled = false;
-            buttonStop.Click += new System.EventHandler(game.btnStop_Click);
+            ButtonStop.Enabled = false;
+            ButtonStop.Click += new System.EventHandler(game.btnStop_Click);
             
-            private Player createPlayer()
+           
+            
+    game.makeGame(this);
+           
 
-            
-            
-            
-            
-            
-            game.makeGame(this);
+            KeyDown += new KeyEventHandler(movePlayer);
+
+
+        }
+        private Player createPlayer()
+
+        {
+            Player player = new Player();
+            player.setSize(50, 50);
+            player.setSpeed(4);
+            player.setPosition(xPlayer, yPlayer);
+            return player;
         }
         private void movePlayer(object sender, KeyEventArgs key)
         {
-            /*Player player = gamePanel.getPlayer();
-            /if (key.KeyCode == Keys.D && game.checkPanelRight())
+            Player player = gamePanel.getPlayer();
+            
+            if (key.KeyCode == Keys.D && game.checkPanelRight())
             {
+                player.moveRight();
                 
             }
             if (key.KeyCode == Keys.A && game.checkPanelLeft())
             {
-                
+                player.moveLeft();
             }
             if (key.KeyCode == Keys.W && game.checkPanelTop())
             {
-                
+                player.moveUp();
             }
             if (key.KeyCode == Keys.S && game.checkPanelBottom())
             {
-                
-            }*/
+                player.moveDown();
+            }
+            player.setPosition(player.getPositionX(),player.getPositionY());
         }
         /*private void tmrGame_Tick(object sender, EventArgs e)
         {
