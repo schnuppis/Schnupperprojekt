@@ -85,14 +85,15 @@ namespace Schnupperspiel
 
             Timer tmrGame = game.tmrGame;
             tmrGame.Tick += new System.EventHandler(this.tmrGame_Tick);
-            game.setTime(60);
+            game.setTime(30);
             game.setTimerGameInterval(1000);
             
 
             Timer tmrCoin = game.tmrCoin;
             tmrCoin.Tick += new System.EventHandler(this.tmrCoin_Tick);
 
-
+            Timer tmrBot = game.tmrEnemy;
+            tmrBot.Tick += new System.EventHandler(this.tmrBot_Tick);
 
 
             game.makeGame(this);
@@ -131,18 +132,48 @@ namespace Schnupperspiel
         {
             game.setScore(game.getPoints());
             game.LookForCoin(10);
-            while (50 > game.getCoinList().Count) 
+            while (50 > game.getCoinList().Count)
             {
                 CreatCoins();
-                
             }
+          
+
+        }
+
+        private void tmrBot_Tick(object sender, EventArgs e)
+        {
+        Player player = gamePanel.getPlayer(); 
+        foreach (EnemyBot Bot in gamePanel.getEnemyBots())
+            {
+                if (player.getTop() > Bot.getTop())
+                {
+                    Bot.moveUp();   
+                }
+                if(player.getTop() < Bot.getTop())
+                {
+                    Bot.moveDown();
+                }
+                if(player.getLeft() > Bot.getLeft())
+                {
+                    Bot.moveRight();
+                }
+                if(player.getLeft() < Bot.getLeft())
+                {
+                    Bot.moveLeft();
+                }
+                if (Bot.colidesWith(player))
+                {
+                    game.stopGame();
+                }
+            }  
         }
         private Player createPlayer()
         {
             Player player = new Player();
             player.setSize(50,50);
-            player.setSpeed(30);
+            player.setSpeed(15);
             player.setPosition(xPlayer,yPlayer);
+            CreatBot(); 
             return player;
             
 
@@ -158,6 +189,14 @@ namespace Schnupperspiel
             coinX = random.Next(20, gamePanel.getWidth() - 40);
             coinY = random.Next(20, gamePanel.getHeight() - 40);
             coin.setPosition(coinX,coinY, gamePanel);
+        } 
+        public EnemyBot CreatBot()
+        {
+            EnemyBot bot = new EnemyBot(); 
+            bot.setSize(50,50);
+            bot.setSpeed(7);
+            bot.setPosition(100, 100, gamePanel);
+            return bot;
         }
 
     }
