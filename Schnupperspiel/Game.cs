@@ -491,6 +491,16 @@ namespace Schnupperspiel
             yPlayer = startyPlayer;
             Location = new Point(xPlayer, yPlayer);
         }
+
+        internal void setPosition(int v)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal void setSize(int v)
+        {
+            throw new NotImplementedException();
+        }
     }
 
 
