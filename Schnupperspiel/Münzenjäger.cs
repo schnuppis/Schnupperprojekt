@@ -22,17 +22,20 @@ namespace Schnupperspiel
         private int xcoin;
         private int ycoin;
 
+        private int xenemy;
+        private int yenemy;
+
         private void loadGame(object sender, EventArgs e)
         {
-            
+
             game.setFormColour(200, 200, 200);
 
             gamePanel = new Panel();
-            gamePanel.setSize(800,500);
-            gamePanel.setColour(0,0,0);
+            gamePanel.setSize(800, 500);
+            gamePanel.setColour(0, 0, 0);
             game.setPanel(gamePanel);
 
-            Label Titellabel =new Label();
+            Label Titellabel = new Label();
             Titellabel.setPosition(820, 480);
             Titellabel.setSize(250, 55);
             Titellabel.setText("Münzenjäger");
@@ -98,11 +101,16 @@ namespace Schnupperspiel
             Timer tmrCoin = game.tmrCoin;
             game.tmrCoin.Tick += new System.EventHandler(this.Coinclass);
 
+            
+
+
             game.setTime(60);
             game.setTimerGameInterval(1000);
 
+           
             game.add(startButton);
             game.add(stopButton);
+
             gamePanel.add(createPlayer());
             game.makeGame(this);
         }
@@ -139,37 +147,40 @@ namespace Schnupperspiel
         }
         private void tmrGame_Tick(object sender, EventArgs e)
         {
-            
+
             if (game.getTime() == 0)
             {
                 tmrGame_Tick();
                 game.timeIsUp();
                 game.stopGame();
             }
+
+           
+
         }
 
         private void Coins()
         {
             Coin coin = new Coin();
-            coin.setSize(20,20);
+            coin.setSize(20, 20);
             coin.setPosition(xcoin, ycoin, gamePanel);
             coin.addToList(game.getCoinList());
         }
 
-        private void Coinclass(object sender, EventArgs e) 
+        private void Coinclass(object sender, EventArgs e)
         {
-            
+
 
             game.LookForCoin(10);
-            
-            
 
-            while(game.getCoinList().Count < 10)
+
+
+            while (game.getCoinList().Count < 10)
             {
                 xcoin = random.Next(20, gamePanel.getWidth() - 40);
                 ycoin = random.Next(20, gamePanel.getHeight() - 40);
 
-                if(game.checkCoinPosition(xcoin, ycoin))
+                if (game.checkCoinPosition(xcoin, ycoin))
                 {
                     Coins();
                     game.setScore(game.getPoints());
@@ -179,13 +190,18 @@ namespace Schnupperspiel
         }
         private void tmrGame_Tick() {
 
-            if (game.getHighscore() > game.getPoints()) 
+            if (game.getHighscore() > game.getPoints())
             {
                 game.setHighscore(game.getPoints());
             }
 
         }
+       
+
+
+
+    }
         
 
     }
-}
+
