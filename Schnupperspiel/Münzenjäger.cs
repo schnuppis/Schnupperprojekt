@@ -156,7 +156,7 @@ namespace Schnupperspiel
             
         }
 
-        private void Coin(object sender, EventArgs e)
+        private void Cosin(object sender, EventArgs e)
         {
             game.LookForCoin(10);
             game.setScore(game.getPoints());
