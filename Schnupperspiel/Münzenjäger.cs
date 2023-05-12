@@ -1,4 +1,5 @@
 using System;
+using System.Drawing.Text;
 using System.Windows.Forms;
 
 // !! ALS STARTDATEI "Schnupperspiel.csproj - Debug|AnyCPU" auswählen !!
@@ -77,40 +78,62 @@ namespace Schnupperspiel
             buttonName.setSize(181, 62);
             buttonName.setColour(255,255,255);
             buttonName.Click += new System.EventHandler(game.btnStart_Click);
+            game.add(buttonName);
 
             Button buttonStop = new Button();
             buttonStop.setText("Stop");
             buttonStop.setPosition(423, 550);
             buttonStop.setSize(181, 62);
-            buttonStop.setColour(255, 255, 255);
-            buttonStop.Click += new System.EventHandler(game.btnStart_Click);
+            buttonStop.setColour(255, 255, 255) ;
 
-            buttonName.Enabled = false;
-            buttonName.Click += new System.EventHandler(game.btnStop_Click);
-
+            buttonStop.Enabled = false;
+            buttonStop.Click += new System.EventHandler(game.btnStop_Click);
+   
+            
 
 
             game.makeGame(this);
         }
-        private void movePlayer(object sender, KeyEventArgs key)
+
+        private Player createPlayer()
         {
-            /*Player player = gamePanel.getPlayer();
+            Player player = new Player();
+            
+           
+            player.setPosition(xPlayer, yPlayer);
+            player.setSize(50, 50);
+            player.setSpeed(4);
+            KeyDown += new KeyEventHandler(movePlayer);
+            return player;
+        }
+
+
+
+            private void movePlayer(object sender, KeyEventArgs key)
+        {
+            Player player = gamePanel.getPlayer();
             if (key.KeyCode == Keys.D && game.checkPanelRight())
             {
+                player.moveRight();
+
                 
             }
             if (key.KeyCode == Keys.A && game.checkPanelLeft())
             {
+                player.moveLeft();
                 
             }
             if (key.KeyCode == Keys.W && game.checkPanelTop())
             {
+                player.moveUp();
                 
             }
             if (key.KeyCode == Keys.S && game.checkPanelBottom())
             {
+                player.moveDown();
                 
-            }*/
+            }
+            player.setPosition(player.getPositionX(), player.getPositionY());
         }
         /*private void tmrGame_Tick(object sender, EventArgs e)
         {
