@@ -1,4 +1,6 @@
 using System;
+using System.Data;
+using System.Drawing.Text;
 using System.Windows.Forms;
 
 // !! ALS STARTDATEI "Schnupperspiel.csproj - Debug|AnyCPU" auswählen !!
@@ -24,6 +26,7 @@ namespace Schnupperspiel
             game.setFormColour(200, 200, 200);
 
             gamePanel = new Panel();
+            gamePanel.add(createPlayer());
             gamePanel.setSize(800, 500);
             gamePanel.setColour(0,0,0);
             game.setPanel(gamePanel);
@@ -41,10 +44,14 @@ namespace Schnupperspiel
             labelTime.setPosition(820, 10);
             labelTime.setSize(220, 55);
 
+            game.add(labelTime);
+
             Label labelPoints = new Label();
 
             labelPoints.setPosition(820, 70);
             labelPoints.setSize(220, 55);
+
+            game.add(labelPoints);
 
             Label labelHighscore = new Label();
 
@@ -52,10 +59,13 @@ namespace Schnupperspiel
             labelHighscore.setPosition(820, 130);
             labelHighscore.setSize(220, 55);
 
+            game.add(labelHighscore);
+
             Text textTime = new Text();
 
             textTime.setPosition(1050, 10);
             textTime.setSize(94, 44);
+
             game.addTimeText(textTime);
 
             Text textPoints = new Text();
@@ -69,7 +79,7 @@ namespace Schnupperspiel
             textHighscore.setPosition(1050, 130);
             textHighscore.setSize(94, 44);
             game.addHighscoreText(textHighscore);
-
+            
             Button buttonName = new Button();
 
             buttonName.setPosition(12, 550);
@@ -77,8 +87,51 @@ namespace Schnupperspiel
             buttonName.setColour(255, 255, 255);
             buttonName.setText("Start");
 
+            game.add(buttonName);
+
             buttonName.Click += new System.EventHandler(game.btnStart_Click);
 
+            Button buttonName2 = new Button();
+
+            buttonName2.setPosition(423, 550);
+            buttonName2.setSize(181, 62);
+            buttonName2.setColour(255, 255, 255);
+            buttonName2.setText("Stop");
+
+            game.add(buttonName2);
+
+            buttonName.Enabled = false;
+
+            buttonName.Click += new System.EventHandler(game.btnStop_Click);
+
+            KeyDown += new KeyEventHandler(movePlayer);
+
+            Timer tmrGame = game.tmrGame;
+
+            tmrGame.Tick += new System.EventHandler(this.tmrGame_Tick); 
+ 
+
+
+            
+
+
+
+
+
+            
+        }
+        private Player createPlayer()
+        {
+
+            Player player = new Player();
+
+            player.setSize(50, 50);
+            player.setSpeed(4);
+            player.setPosition(10, 10);
+            game.add(player); 
+            return player;
+
+           
 
 
 
@@ -87,7 +140,7 @@ namespace Schnupperspiel
 
 
 
-            game.makeGame(this);
+
         }
         private void movePlayer(object sender, KeyEventArgs key)
         {
