@@ -55,10 +55,40 @@ namespace Schnupperspiel
             game.add(labelHighscore);
 
 
-            Text textName = new Text();
-            game.addTimeText(textName);
-            game.addPointsText(textName);
-            game.addHighscoreText(textName);
+            Text textTime = new Text();
+            textTime.setPosition(1050, 10);
+            textTime.setSize(94, 44);
+
+            Text textPoints = new Text();
+            textPoints.setPosition(1050, 70);
+            textPoints.setSize(94, 44);
+
+            Text textHighscore = new Text();
+            textHighscore.setPosition(1050, 130);
+            textHighscore.setSize(94, 44);
+
+            game.addTimeText(textTime);
+            game.addPointsText(textPoints);
+            game.addHighscoreText(textHighscore);
+
+            Button buttonName = new Button();
+            buttonName.setText("Start");
+            buttonName.setPosition(12, 550);
+            buttonName.setSize(181, 62);
+            buttonName.setColour(255,255,255);
+            buttonName.Click += new System.EventHandler(game.btnStart_Click);
+
+            Button buttonStop = new Button();
+            buttonStop.setText("Stop");
+            buttonStop.setPosition(423, 550);
+            buttonStop.setSize(181, 62);
+            buttonStop.setColour(255, 255, 255);
+            buttonStop.Click += new System.EventHandler(game.btnStart_Click);
+
+            buttonName.Enabled = false;
+            buttonName.Click += new System.EventHandler(game.btnStop_Click);
+
+
 
             game.makeGame(this);
         }
