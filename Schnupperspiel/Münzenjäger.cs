@@ -1,4 +1,6 @@
 using System;
+using System.Drawing.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 // !! ALS STARTDATEI "Schnupperspiel.csproj - Debug|AnyCPU" auswählen !!
@@ -13,7 +15,11 @@ namespace Schnupperspiel
         public static int yPlayer = 450;
         public static int xCoin = 0;
         public static int yCoin = 0;
+        public static int xEnemy = 0;
+        public static int yEnemy = 0;
         public Panel gamePanel;
+        public Wall wall;
+        public int enemycount = 5;
 
         public frmGame()
         {
@@ -44,7 +50,8 @@ namespace Schnupperspiel
             gamePanel.setColour(0,0,0);
             game.setPanel(gamePanel);
 
-           Label labelname = new Label();
+
+            Label labelname = new Label();
             labelname.setPosition(820, 480);
             labelname.setSize(250, 55);
             labelname.setText("Münzenjäger:");
@@ -102,9 +109,43 @@ namespace Schnupperspiel
             stopButton.Click += new System.EventHandler(game.btnStop_Click);
             game.add(stopButton);
 
+            /*Button einfachbutton = new Button();
+            einfachbutton.setPosition(600, 550);
+            einfachbutton.setSize(181, 62);
+            einfachbutton.setColour(255, 255, 255);
+            einfachbutton.setText("Einfach");
+            game.add(einfachbutton);
+            einfachbutton.Click += new System.EventHandler(einfach);
+
+            Button normalbutton = new Button();
+            normalbutton.setPosition(800, 550);
+            normalbutton.setSize(181, 62);
+            normalbutton.setColour(255, 255, 255);
+            normalbutton.setText("Normal");
+            game.add(normalbutton);
+            normalbutton.Click += new System.EventHandler(normal);
+
+            Button schwierigbutton = new Button();
+            schwierigbutton.setPosition(1000, 550);
+            schwierigbutton.setSize(181, 62);
+            schwierigbutton.setColour(255, 255, 255);
+            schwierigbutton.setText("Schwierig");
+            game.add(schwierigbutton);
+            schwierigbutton.Click += new System.EventHandler(schwierig);*/
+
+            
+
+            Wall wall = new Wall();
+
+            wall.setPosition(431, 111);
+            wall.setSize(30, 147);
+            wall.setColour(255,255,255);
+            gamePanel.add(wall);
+            
+
             gamePanel.add(createPlayer());
             KeyDown += new KeyEventHandler(movePlayer);
-
+            KeyDown += new KeyEventHandler(Schwierigkeit);
             Timer tmrGame = game.tmrGame;
             tmrGame.Tick += new System.EventHandler(this.tmrGame_Tick);
 
@@ -115,6 +156,8 @@ namespace Schnupperspiel
             Timer tmrCoin = game.tmrCoin;
             tmrCoin.Tick += new System.EventHandler(this.Coin);
             
+            Timer tmrEnemy = game.tmrEnemy;
+            tmrEnemy.Tick += new System.EventHandler(this.Enemymovement);
             
 
 
@@ -122,20 +165,23 @@ namespace Schnupperspiel
         }
         private void movePlayer(object sender, KeyEventArgs key)
         {
+            
+
             Player player = gamePanel.getPlayer();
-            if (key.KeyCode == Keys.D && game.checkPanelRight())
+            if (key.KeyCode == Keys.D && game.checkPanelRight()&& !game.checkWallRight(player, player.getSpeed()))
             {
                 player.moveRight();
+                
             }
-            if (key.KeyCode == Keys.A && game.checkPanelLeft())
+            if (key.KeyCode == Keys.A && game.checkPanelLeft() && !game.checkWallLeft(player, player.getSpeed()))
             {
                 player.moveLeft();
             }
-            if (key.KeyCode == Keys.W && game.checkPanelTop())
+            if (key.KeyCode == Keys.W && game.checkPanelTop() && !game.checkWallTop(player, player.getSpeed()))
             {
                 player.moveUp();
             }
-            if (key.KeyCode == Keys.S && game.checkPanelBottom())
+            if (key.KeyCode == Keys.S && game.checkPanelBottom() && !game.checkWallBottom(player, player.getSpeed()))
             {
                 player.moveDown();
             }
@@ -145,12 +191,20 @@ namespace Schnupperspiel
         private void tmrGame_Tick(object sender, EventArgs e)
         {
 
+            if(gamePanel.getEnemys().Count < 5)
+            {
+                xEnemy = random.Next(20, gamePanel.getWidth() - 40);
+                yEnemy = random.Next(20, gamePanel.getHeight() - 40);
+                CreateEnemy();
+            }
+
+
             if(game.getTime()  < 0)
             {
 
                 game.timeIsUp();
                 game.stopGame();
-
+                
                 Highscore();
                 
             }
@@ -188,6 +242,103 @@ namespace Schnupperspiel
             if (game.getHighscore() < game.getPoints())
             {
                 game.setHighscore(game.getPoints());
+            }
+        }
+
+
+        
+        private void CreateEnemy()
+        {
+            
+            Enemy enemy = new Enemy();
+            enemy.setSize(50, 50);
+            enemy.setSpeed(5);
+            enemy.setPosition(xEnemy, yEnemy, gamePanel);
+            
+
+        }
+        private void Enemymovement(object sender, EventArgs e)
+        {   
+            
+            Player player = gamePanel.getPlayer();
+            
+
+            foreach (Enemy enemy in gamePanel.getEnemys())
+            {
+                if (enemy.getTop() < player.getTop() && !game.checkWallTop(enemy, enemy.getSpeed()))
+                {
+                    enemy.moveUp();
+                }
+                if (enemy.getLeft() < player.getLeft() && !game.checkWallRight(enemy, enemy.getSpeed()))
+                {
+                    enemy.moveRight();
+                }
+                if (!(enemy.getLeft() < player.getLeft() && !game.checkWallLeft(enemy, enemy.getSpeed())))
+                {
+                    enemy.moveLeft();
+                }
+                if(!(enemy.getTop() < player.getTop() && !game.checkWallBottom(enemy, enemy.getSpeed())))
+                {
+                    enemy.moveDown();
+                }
+
+
+
+                if (enemy.colidesWith(player))
+                {
+                    game.stopGame();
+                }
+            }
+            
+        }
+
+        private void Schwierigkeit(object sender, KeyEventArgs key)
+        {
+            if(key.KeyCode == Keys.T)
+            {
+                einfach();
+            }
+            if (key.KeyCode == Keys.Z)
+            {
+                normal();
+            }
+            if (key.KeyCode == Keys.U)
+            {
+                schwierig();
+            }
+        }
+
+            private void einfach()
+        {
+            Player player = gamePanel.getPlayer();
+            player.setSpeed(6);
+            enemycount = 4;
+            foreach (Enemy enemy in gamePanel.getEnemys())
+            {
+                enemy.setSpeed(4);
+
+            }
+        }
+        private void normal()
+        {
+            Player player = gamePanel.getPlayer();
+            player.setSpeed(5);
+            enemycount = 5;
+            foreach (Enemy enemy in gamePanel.getEnemys())
+            {
+                enemy.setSpeed(5);
+
+            }
+        }
+        private void schwierig()
+        {
+            Player player = gamePanel.getPlayer();
+            player.setSpeed(4);
+            enemycount = 6;
+            foreach (Enemy enemy in gamePanel.getEnemys())
+            {
+                enemy.setSpeed(6);
+
             }
         }
     }
