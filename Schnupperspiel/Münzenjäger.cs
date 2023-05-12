@@ -21,14 +21,41 @@ namespace Schnupperspiel
         private void loadGame(object sender, EventArgs e)
         {
             
-            //game.setFormColour(200, 200, 200);
+            game.setFormColour(200, 200, 200);
 
-            //gamePanel = new Panel();
-            //gamePanel.setSize();
-            //gamePanel.setColour();
-           
+            gamePanel = new Panel();
+            gamePanel.setSize(800,500);
+            gamePanel.setColour(0,0,0);
+            game.setPanel(gamePanel);
 
+
+            Label lableName = new Label();
+            lableName.setPosition(820, 480);
+            lableName.setSize(250, 55);
+
+            lableName.setText("Münzenjäger:");
+            game.add(lableName);
             
+            Label Timelable = new Label();
+            Timelable.setPosition(820, 10);
+            Timelable.setSize(220, 55);
+            Timelable.setText("time");
+            game.add(Timelable);
+
+
+            Label Pointlable = new Label();
+            Pointlable.setPosition(820, 70);
+            Pointlable.setSize(220, 55);
+            Pointlable.setText("points");
+            game.add(Pointlable);
+
+            Label Highscorelable = new Label();
+            Highscorelable.setPosition(820, 130);
+            Highscorelable.setSize(220, 55);
+            Highscorelable.setText("highscore");
+            game.add(Highscorelable);
+
+
 
             game.makeGame(this);
         }
