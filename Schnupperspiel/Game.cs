@@ -201,6 +201,11 @@ namespace Schnupperspiel
         {
             coinList.Add(this);
         }
+
+        internal void setPosition(int v1, int v2)
+        {
+            throw new NotImplementedException();
+        }
     }
 
     public class Wall : GameObject

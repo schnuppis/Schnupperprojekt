@@ -1,5 +1,6 @@
 using Schnupperspiel;
 using System;
+using System.Data;
 using System.Drawing.Text;
 using System.Windows.Forms;
 using System.Xml.Linq;
@@ -14,6 +15,9 @@ namespace Schnupperspiel
         private Random random = new Random();
         public static int xPlayer = 750;
         public static int yPlayer = 450;
+
+        public int coinx = 4;
+        public int coiny = 8;
 
         public Panel gamePanel;
 
@@ -41,8 +45,8 @@ namespace Schnupperspiel
             Label labeltime = new Label();
             labeltime.setPosition(820, 10);
             labeltime.setSize(220, 55);
-            labeltime.setText("Text:");
-           
+            labeltime.setText("Time:");
+            game.add(labeltime);
             Label labelpoints = new Label();
             labelpoints.setPosition(820, 70);
             labelpoints.setSize(220, 55);
@@ -59,6 +63,7 @@ namespace Schnupperspiel
             texttime.setPosition(1050, 10);
             texttime.setSize(94, 44);
             game.addTimeText(texttime);
+
 
             Text textpoints = new Text();
             textpoints.setPosition(1050, 70);
@@ -86,9 +91,16 @@ namespace Schnupperspiel
 
             ButtonStop.Enabled = false;
             ButtonStop.Click += new System.EventHandler(game.btnStop_Click);
-            
-           
-            
+
+            Timer tmrGame = game.tmrGame;
+            tmrGame.Tick += new System.EventHandler(this.tmrGame_Tick);
+            game.setTime(120);
+            game.setTimerGameInterval(1000);
+            gamePanel.add(createPlayer());
+
+            Timer tmrCoin = game.tmrCoin;
+            tmrCoin.Tick += new System.EventHandler(this.Coin);
+
     game.makeGame(this);
            
 
@@ -96,12 +108,19 @@ namespace Schnupperspiel
 
 
         }
+        private void createCoins()
+        {
+            Coin coin = new Coin();
+            coin.setSize(20, 20);
+            coin.addToList(game.getCoinList());
+            coin.setPosition(coinx,coiny, gamePanel);
+        }
         private Player createPlayer()
 
         {
             Player player = new Player();
             player.setSize(50, 50);
-            player.setSpeed(4);
+            player.setSpeed(10);
             player.setPosition(xPlayer, yPlayer);
             return player;
         }
@@ -128,8 +147,31 @@ namespace Schnupperspiel
             }
             player.setPosition(player.getPositionX(),player.getPositionY());
         }
-        /*private void tmrGame_Tick(object sender, EventArgs e)
+        private void tmrGame_Tick(object sender, EventArgs e)
         {
-        }*/
+            if (game.getTime() <= 0) {
+                game.timeIsUp();
+                game.stopGame();
+                    }
+            
+        }
+
+        private void Coin(object sender, EventArgs e)
+        {
+            game.LookForCoin(10);
+            game.setScore(game.getPoints());
+            while (game.getCoinList().Count< 20)
+            {
+                
+                coinx=random.Next(20, gamePanel.getWidth() - 40);
+               coiny=random.Next(20, gamePanel.getHeight() - 40);
+                if (game.checkCoinPosition(coinx, coiny))
+                {
+                    createCoins();
+                }
+            }
+            
+            
+        }
     }
 }
