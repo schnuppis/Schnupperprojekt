@@ -19,6 +19,11 @@ namespace Schnupperspiel
         {
             InitializeComponent();
         }
+
+        private int xcoin;
+        private int ycoin;
+        
+        
         private void loadGame(object sender, EventArgs e)
         {
 
@@ -65,6 +70,9 @@ namespace Schnupperspiel
             game.setTime(1000);
             game.setTimerGameInterval(100);
 
+            Timer tmrCoin = game.tmrCoin;
+            tmrCoin.Tick += new System.EventHandler(this.tmrCoin_Tick);
+
             Text textPoints = new Text();
             textPoints.setPosition(1050, 70);
             textPoints.setSize(94, 44);
@@ -84,13 +92,15 @@ namespace Schnupperspiel
             game.add(buttonStart);
 
             Button buttonStop = new Button();
-            buttonStop.setPosition(12, 550);
+            buttonStop.setPosition(423, 550);
             buttonStop.setSize(181, 62);
             buttonStop.setColour(255, 0, 0);
             buttonStop.setText("Stop");
             buttonStop.Enabled = false;
             buttonStop.Click += new System.EventHandler(game.btnStop_Click);
             game.add(buttonStop);
+
+            tmrCoin.Tick += new System.EventHandler(this.tmrCoin_Tick);
 
             gamePanel.add(createPlayer());
             KeyDown += new KeyEventHandler(movePlayer);
@@ -114,6 +124,7 @@ namespace Schnupperspiel
             Coin coin = new Coin();
             coin.setSize(20,20);
             coin.addToList(game.getCoinList());
+            coin.setPosition(xcoin, ycoin, gamePanel);
         }
 
         private void movePlayer(object sender, KeyEventArgs key)
@@ -147,6 +158,15 @@ namespace Schnupperspiel
         }
         private void tmrGame_Tick(object sender, EventArgs e)
         {
+            if (game.getTime() == 0)
+            {
+                game.timeIsUp();
+                game.stopGame();
+            }
+        }
+        private void tmrCoin_Tick(object sender, EventArgs e)
+        {
+
         }
     }
 }
