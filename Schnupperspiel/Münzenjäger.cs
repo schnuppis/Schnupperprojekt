@@ -28,24 +28,24 @@ namespace Schnupperspiel
             gamePanel.setColour(0,0,0);
             game.setPanel(gamePanel);
 
-            Label timeLabel = new Label();
-            timeLabel.setPosition(820, 0);
-            timeLabel.setSize(250, 55);
-            timeLabel.setText("Time:");
+            Label time = new Label();
+            time.setPosition(820, 0);
+            time.setSize(250, 55);
+            time.setText("Time:");
 
-            Label pointsLabel = new Label();
-            pointsLabel.setPosition(820, 100);
-            pointsLabel.setSize(250, 55);
-            pointsLabel.setText("Points:");
+            Label points = new Label();
+            points.setPosition(820, 100);
+            points.setSize(250, 55);
+            points.setText("Points:");
 
-            Label highscoreLabel = new Label();
-            highscoreLabel.setPosition(820, 200);
-            highscoreLabel.setSize(250, 55);
-            highscoreLabel.setText("High-Score:");
+            Label highscore = new Label();
+            highscore.setPosition(820, 200);
+            highscore.setSize(250, 55);
+            highscore.setText("High-Score:");
 
-            game.add(timeLabel);
-            game.add(pointsLabel);
-            game.add(highscoreLabel);
+            game.add(time);
+            game.add(points);
+            game.add(highscore);
 
             Text textName = new Text();
             Text TimeText = new Text();
@@ -63,6 +63,24 @@ namespace Schnupperspiel
             game.addPointsText(textName);
             game.addTimeText(textName);
             game.addHighscoreText(textName);
+
+            Button Start = new Button();
+            Start.setPosition(12, 550);
+            Start.setSize(181, 62);
+            Start.setColour(255, 255, 255);
+            Start.setText("Start");
+            Start.Click += new System.EventHandler(game.btnStart_Click);
+
+            Button Stop = new Button();
+            Stop.setPosition(423, 550);
+            Stop.setSize(181, 62);
+            Stop.setColour(255, 255, 255);
+            Stop.setText("Stop");
+            Stop.Enabled = false;
+            Stop.Click += new System.EventHandler(game.btnStop_Click);
+
+            game.add(Start);
+            game.add(Stop);
             
 
 
