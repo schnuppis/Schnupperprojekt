@@ -14,6 +14,8 @@ namespace Schnupperspiel
         private Random random = new Random();
         public static int xPlayer = 750;
         public static int yPlayer = 450;
+        public int CoinX;
+        public int CoinY;
 
         public Panel gamePanel;
 
@@ -97,10 +99,13 @@ namespace Schnupperspiel
             Timer tmrGame = game.tmrGame;
             tmrGame.Tick += new System.EventHandler(this.tmrGame_Tick);
 
-            game.setTime(5);
+            game.setTime(60);
             game.setTimerGameInterval(1000);
 
-           
+            Timer tmrCoin = game.tmrCoin;
+            tmrCoin.Tick += new System.EventHandler(this.tmrCoin_Tick);
+
+            
 
             game.makeGame(this);
         }
@@ -110,7 +115,7 @@ namespace Schnupperspiel
 
             Player player = new Player();
             player.setSize(50, 50);
-            player.setSpeed(4);
+            player.setSpeed(8);
             player.setPosition(xPlayer, yPlayer);
             return player;
 
@@ -145,7 +150,36 @@ namespace Schnupperspiel
             {
                 game.timeIsUp();
                 game.stopGame();
+                if (game.getPoints() > game.getHighscore()) 
+                {
+                    game.setHighscore(game.getPoints());
+                }
+            
+                        
+                        }
+        }
+
+        private void tmrCoin_Tick(object sender, EventArgs e)
+        {
+            game.LookForCoin(10);
+            game.setScore(game.getPoints());
+            while (game.getCoinList().Count < 40)
+            {
+                CoinX = random.Next(20, gamePanel.getWidth() - 40);
+                CoinY = random.Next(20, gamePanel.getWidth() - 40);
+                if (game.checkCoinPosition(CoinX, CoinY))
+                {
+                    coin();
+                }
+               
             }
+        }
+        private void coin()
+        {
+            Coin coin = new Coin();
+            coin.setSize(20, 20);
+            coin.setPosition(CoinX, CoinY, gamePanel);
+            coin.addToList(game.getCoinList());
         }
     }
 }
