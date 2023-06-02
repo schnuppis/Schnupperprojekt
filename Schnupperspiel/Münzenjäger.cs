@@ -95,9 +95,9 @@ namespace Schnupperspiel
             buttonStopp.Click += new System.EventHandler(game.btnStop_Click);
 
             Wall wall1 = new Wall();
-            wall1.setPosition(431, 111);
-            wall1.setSize(30, 147);
-            wall1.setColour(255, 255, 255);
+            wall1.setPosition(431, 0);
+            wall1.setSize(50, 345);
+            wall1.setColour(1, 1, 255);
             gamePanel.add(wall1);
 
             gamePanel.add(createPlayer());
@@ -135,8 +135,8 @@ namespace Schnupperspiel
         private EnemyBot createEnemyBot() 
         {
             EnemyBot enemybot = new EnemyBot();
-            enemybot.setSize(50, 50);   
-            enemybot.setSpeed(8);
+            enemybot.setSize(110, 110);   
+            enemybot.setSpeed(50);
             enemybot.setPosition(50, 350, gamePanel);
             return enemybot;
         }
@@ -229,7 +229,7 @@ namespace Schnupperspiel
         {
             game.LookForCoin(10);
             game.setScore(game.getPoints());
-            while (game.getCoinList().Count < 40)
+            while (game.getCoinList().Count < 60)
             {
                 CoinX = random.Next(20, gamePanel.getWidth() - 40);
                 CoinY = random.Next(20, gamePanel.getWidth() - 40);
