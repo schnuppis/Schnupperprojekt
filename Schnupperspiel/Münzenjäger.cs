@@ -28,7 +28,60 @@ namespace Schnupperspiel
             gamePanel.setColour(0, 0, 0);
             game.setPanel(gamePanel);
 
-            
+            Label labelName = new Label();
+            labelName.setPosition(820, 480);
+            labelName.setSize(250, 55);
+            labelName.setText("Münzenjäger");
+            game.add(labelName);
+
+            Label labelTime = new Label();
+            labelTime.setPosition(820, 10);
+            labelTime.setSize(220, 55);
+            labelTime.setText("Time:");
+            game.add(labelTime);
+
+            Label labelPoints = new Label();
+            labelPoints.setPosition(820, 70);
+            labelPoints.setSize(220, 55);
+            labelPoints.setText("Points:");
+            game.add(labelPoints);
+
+            Label labelHighscore = new Label();
+            labelHighscore.setPosition(820, 130);
+            labelHighscore.setSize(220, 55);
+            labelHighscore.setText("Highscore:");
+            game.add(labelHighscore);
+
+            Text textTime = new Text();
+            textTime.setPosition(1050, 20);
+            textTime.setSize(94, 44);
+            game.addTimeText(textTime);
+
+            Text textPoints = new Text();
+            textPoints.setPosition(1050, 70);
+            textPoints.setSize(94, 44);
+            game.addPointsText(textPoints);
+
+            Text textHighscore = new Text();
+            textHighscore.setPosition(1050, 130);
+            textHighscore.setSize(94, 44);
+            game.addHighscoreText(textHighscore);
+
+            Button buttonStart = new Button();
+            buttonStart.setPosition(12, 550);
+            buttonStart.setSize(181, 62);
+            buttonStart.setColour(255, 255, 255);
+            buttonStart.setText("Start");
+            game.add(buttonStart);
+
+            buttonStart.Click += new System.EventHandler(game.btnStart_Click);
+
+            Button buttonStopp = new Button();
+            buttonStopp.setPosition(423, 550);
+            buttonStopp.setSize(181, 62);
+            buttonStopp.setColour(255, 255, 255);
+            buttonStopp.setText("Stopp");
+            game.add(buttonStopp);
 
             game.makeGame(this);
         }
