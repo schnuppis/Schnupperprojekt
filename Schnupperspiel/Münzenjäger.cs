@@ -28,7 +28,43 @@ namespace Schnupperspiel
             gamePanel.setColour(0,0,0);
             game.setPanel(gamePanel);
 
+            Label timeLabel = new Label();
+            timeLabel.setPosition(820, 0);
+            timeLabel.setSize(250, 55);
+            timeLabel.setText("Time:");
+
+            Label pointsLabel = new Label();
+            pointsLabel.setPosition(820, 100);
+            pointsLabel.setSize(250, 55);
+            pointsLabel.setText("Points:");
+
+            Label highscoreLabel = new Label();
+            highscoreLabel.setPosition(820, 200);
+            highscoreLabel.setSize(250, 55);
+            highscoreLabel.setText("High-Score:");
+
+            game.add(timeLabel);
+            game.add(pointsLabel);
+            game.add(highscoreLabel);
+
+            Text textName = new Text();
+            Text TimeText = new Text();
+            Text PointsText = new Text();
+            Text HighscoreText = new Text();
+
+            PointsText.setPosition(1050, 10);
+            TimeText.setPosition(1050, 70);
+            HighscoreText.setPosition(1050, 130);
+
+            PointsText.setSize(94, 44);
+            TimeText.setSize(94, 44);
+            HighscoreText.setSize(94, 44);
+
+            game.addPointsText(textName);
+            game.addTimeText(textName);
+            game.addHighscoreText(textName);
             
+
 
             game.makeGame(this);
         }
