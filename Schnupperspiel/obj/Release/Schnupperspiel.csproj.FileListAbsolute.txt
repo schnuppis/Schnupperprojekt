@@ -1,0 +1,11 @@
+C:\Users\Softwareschmiede\Desktop\dev\Schnupperprojekt\Schnupperspiel\bin\Release\Schnupperspiel.exe.config
+C:\Users\Softwareschmiede\Desktop\dev\Schnupperprojekt\Schnupperspiel\bin\Release\Schnupperspiel.exe
+C:\Users\Softwareschmiede\Desktop\dev\Schnupperprojekt\Schnupperspiel\bin\Release\Schnupperspiel.pdb
+C:\Users\Softwareschmiede\Desktop\dev\Schnupperprojekt\Schnupperspiel\obj\Release\Schnupperspiel.csproj.AssemblyReference.cache
+C:\Users\Softwareschmiede\Desktop\dev\Schnupperprojekt\Schnupperspiel\obj\Release\Schnupperspiel.csproj.SuggestedBindingRedirects.cache
+C:\Users\Softwareschmiede\Desktop\dev\Schnupperprojekt\Schnupperspiel\obj\Release\Schnupperspiel.frmGame.resources
+C:\Users\Softwareschmiede\Desktop\dev\Schnupperprojekt\Schnupperspiel\obj\Release\Schnupperspiel.Properties.Resources.resources
+C:\Users\Softwareschmiede\Desktop\dev\Schnupperprojekt\Schnupperspiel\obj\Release\Schnupperspiel.csproj.GenerateResource.cache
+C:\Users\Softwareschmiede\Desktop\dev\Schnupperprojekt\Schnupperspiel\obj\Release\Schnupperspiel.csproj.CoreCompileInputs.cache
+C:\Users\Softwareschmiede\Desktop\dev\Schnupperprojekt\Schnupperspiel\obj\Release\Schnupperspiel.exe
+C:\Users\Softwareschmiede\Desktop\dev\Schnupperprojekt\Schnupperspiel\obj\Release\Schnupperspiel.pdb
