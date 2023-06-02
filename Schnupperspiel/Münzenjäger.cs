@@ -1,4 +1,6 @@
 using System;
+using System.Data;
+using System.Reflection;
 using System.Windows.Forms;
 
 // !! ALS STARTDATEI "Schnupperspiel.csproj - Debug|AnyCPU" auswählen !!
@@ -20,12 +22,14 @@ namespace Schnupperspiel
         }
         int xPos;
         int yPos;
+        public bool moveLeft = true;
+
 
 
         private void loadGame(object sender, EventArgs e)
         {
             
-            game.setFormColour(200, 200, 200);
+            game.setFormColour(0, 0, 0);
 
             gamePanel = new Panel();
             gamePanel.setSize(800,500);
@@ -143,8 +147,12 @@ namespace Schnupperspiel
                 {
                     game.setHighscore(game.getPoints());
                 }
+                if (game.getTime() == 0)
+                {
+                    
+                }
             }
-        }
+        }   
         private void coins()
         {
             Coin coin = new Coin();
@@ -173,9 +181,31 @@ namespace Schnupperspiel
         private void tmrEnemy_Tick(object sender, EventArgs e)
         {
             Enemy enemy = new Enemy();
-            enemy.setSize(50,50);
-            enemy.setPosition(200,800, gamePanel);
+
+        }
+        private void enemyMovement(object sender, EventArgs e)
+        {
+            Enemy enemy = new Enemy();
+            enemy.setSize(50, 50);
+            enemy.setPosition(200, 800, gamePanel);
             enemy.setSpeed(3);
+            foreach (EnemyBot bot in gamePanel.getEnemyBots()) ;
+            if (moveLeft == true)
+            {
+                enemy.moveRight();
+            }
+            else
+            {
+                enemy.moveLeft();
+            }
+            if (enemy.getLeft() >= 750)
+            {
+                moveLeft = false;
+            }
+            if (enemy.getRight() <= 1)
+            {
+                moveLeft = true;
+            }
         }
     }
 }
