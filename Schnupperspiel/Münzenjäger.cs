@@ -115,6 +115,9 @@ namespace Schnupperspiel
             Timer tmrEnemy =  game.tmrEnemy;
             tmrEnemy.Tick += new System.EventHandler(this.tmrEnemy_Tick);
 
+            Timer tmrSpeed = game.tmrSpeed;
+            tmrSpeed.Tick += new System.EventHandler(this.tmrSpeed_Tick);
+
             game.makeGame(this);
         }
         private Player createPlayer()
@@ -184,7 +187,14 @@ namespace Schnupperspiel
             {
                 player.moveDown();  
             }
-            
+            if (key.KeyCode == Keys.E) 
+            {
+                playerboost();
+            }
+            if (key.KeyCode == Keys.Q) 
+            {
+                playernerf();
+            }
             player.setPosition(player.getPositionX(), player.getPositionY());
         } 
 
@@ -236,6 +246,31 @@ namespace Schnupperspiel
             coin.setSize(20, 20);
             coin.setPosition(CoinX, CoinY, gamePanel);
             coin.addToList(game.getCoinList());
+        }
+        private void playerboost() 
+        {
+            game.setAddedPlayerSpeed(5);
+            game.setTimerSpeedInterval(1000);
+            game.setSpeedTime(5);
+            game.setSpeedDelay(10);
+            game.speed();
+           
+        }
+        private void playernerf()
+        {
+            game.setAddedPlayerSpeed(-5);
+            game.setTimerSpeedInterval(1000);
+            game.setSpeedTime(5);
+            game.setSpeedDelay(10);
+            game.speed();
+
+        }
+        private void tmrSpeed_Tick(object sender, EventArgs e)
+        {
+          
+
+
+            
         }
     }
 }
