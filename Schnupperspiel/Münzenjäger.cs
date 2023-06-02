@@ -21,16 +21,16 @@ namespace Schnupperspiel
         private void loadGame(object sender, EventArgs e)
         {
             
-            //game.setFormColour(200, 200, 200);
+           game.setFormColour(200, 200, 200);
 
-            //gamePanel = new Panel();
-            //gamePanel.setSize();
-            //gamePanel.setColour();
-           
+            gamePanel = new Panel();
+            gamePanel.setSize(800,500);
+            gamePanel.setColour(0,0,0);
 
+            game.setPanel(gamePanel);
             
 
-            game.makeGame(this);
+             game.makeGame(this);
         }
         private void movePlayer(object sender, KeyEventArgs key)
         {
