@@ -86,6 +86,8 @@ namespace Schnupperspiel
             game.setTimerGameInterval(1000);
             Timer tmrCoins = game.tmrCoin;
             tmrCoins.Tick += new System.EventHandler(tmrCoins_Tick);
+            Timer tmrEnemy = game.tmrEnemy;
+            tmrEnemy.Tick += new System.EventHandler(tmrEnemy_Tick);
 
             
 
@@ -137,22 +139,43 @@ namespace Schnupperspiel
             {
                 game.timeIsUp();
                 game.stopGame();
+                if (game.getHighscore() < game.getPoints())
+                {
+                    game.setHighscore(game.getPoints());
+                }
             }
         }
-        private void coins(object sender, EventArgs e)
+        private void coins()
         {
             Coin coin = new Coin();
             coin.setSize(20,20);
+            
+            
             coin.setPosition(xPos, yPos, gamePanel);
             coin.addToList(game.getCoinList());
+
         }
         private void tmrCoins_Tick(object sender, EventArgs e)
         {
-            while ()
+            game.LookForCoin(10);
+            if (game.getCoinList().Count < 30)
             {
-                
-            }
+                xPos = random.Next(20, gamePanel.getWidth() - 40);
+                yPos = random.Next(gamePanel.getHeight() - 40);
+                if (game.checkCoinPosition(xPos, yPos))
+                {
+                    coins();
+                }
+            }   game.setScore(game.getPoints());
             
+            
+        }
+        private void tmrEnemy_Tick(object sender, EventArgs e)
+        {
+            Enemy enemy = new Enemy();
+            enemy.setSize(50,50);
+            enemy.setPosition(200,800, gamePanel);
+            enemy.setSpeed(3);
         }
     }
 }
