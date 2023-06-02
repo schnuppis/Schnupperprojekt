@@ -91,11 +91,12 @@ namespace Schnupperspiel
             Stop.Click += new System.EventHandler(game.btnStop_Click);
 
             KeyDown += new KeyEventHandler(movePlayer);
+            KeyUp += new KeyEventHandler(movePlayer);
 
             game.add(Start);
             game.add(Stop);
 
-            game.add(CreatePlayer());
+            gamePanel.add(CreatePlayer());
 
             game.makeGame(this);
         }
@@ -105,24 +106,25 @@ namespace Schnupperspiel
         private void movePlayer(object sender, KeyEventArgs key)
         {
             Player Player = gamePanel.getPlayer();
-            if (key.KeyCode == Keys.D && game.checkPanelRight())
+            if (key.KeyCode == Keys.D & true & game.checkPanelRight())
             {
-                Player.moveRight();
+                _ = Player.moveRight();
             }
-            if (key.KeyCode == Keys.A && game.checkPanelLeft())
+            if (key.KeyCode == Keys.A & true & game.checkPanelLeft())
             {
-                Player.moveLeft();
+                 Player.moveLeft();
             }
-            if (key.KeyCode == Keys.W && game.checkPanelTop())
+            if (key.KeyCode == Keys.W & true & game.checkPanelTop())
             {
-                Player.moveUp();
+                _ = Player.moveUp();
             }
-            if (key.KeyCode == Keys.S && game.checkPanelBottom())
+            if (key.KeyCode == Keys.S & true & game.checkPanelBottom())
             {
-                Player.moveDown();
+                _ = Player.moveDown();
             }
-            Player.getPositionX();
-            Player.getPositionY();
+            _ = Player.getPositionX();
+            _ = Player.getPositionY();
+            Player.setPosition(Player.getPositionX(), Player.getPositionY());
         }
         /*private void tmrGame_Tick(object sender, EventArgs e)
         {
