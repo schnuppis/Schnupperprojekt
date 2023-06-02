@@ -19,6 +19,11 @@ namespace Schnupperspiel
         {
             InitializeComponent();
         }
+
+        private void tmrEnemy_Tick(object sender, EventArgs args)
+        {
+
+        }
         private Player createPlayer()
         {
             Player player = new Player();
@@ -30,6 +35,8 @@ namespace Schnupperspiel
 
 
         }
+
+        
 
         public void createCoin()
         {
@@ -53,7 +60,16 @@ namespace Schnupperspiel
                 }
 
             }
-        } 
+
+        }
+        private void  createEnemyBot()
+        {
+            EnemyBot enemy = new EnemyBot();
+            enemy.setSize(50, 50);
+            enemy.setSpeed(20);
+            enemy.setPosition(xPlayer, yPlayer, gamePanel);
+         
+        }
 
         private void loadGame(object sender, EventArgs e)
         {
@@ -143,8 +159,11 @@ namespace Schnupperspiel
 
 
             }
-            
+            Timer tmrEnemy = game.tmrCoin;
 
+            
+            
+            
             game.makeGame(this);
 
 
@@ -170,18 +189,25 @@ namespace Schnupperspiel
                 player.moveDown();
             }
             player.setPosition(player.getPositionX(), player.getPositionY());
-        }
-        private void tmrGame_Tick(object sender, EventArgs e)
-        {
-            if (game.getTime() == 0)
-            {
-               
-                game.timeIsUp();
-                game.stopGame();
-            }
-            
 
         }
+        private void moveenemy() {
+            foreach(EnemyBot bot in gamePanel.getEnemyBots()) { 
+            }
+
+        }
+            private void tmrGame_Tick(object sender, EventArgs e)
+            {
+                if (game.getTime() == 0)
+                {
+
+                    game.timeIsUp();
+                    game.stopGame();
+                }
+
+
+            }
+        
         private void tmrCoin_Tick(object sender, EventArgs e)
         {
             if (game.getTime() == 0)
