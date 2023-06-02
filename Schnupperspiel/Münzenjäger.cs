@@ -97,8 +97,10 @@ namespace Schnupperspiel
             Timer tmrGame = game.tmrGame;
             tmrGame.Tick += new System.EventHandler(this.tmrGame_Tick);
 
-            game.setTime(120);
+            game.setTime(5);
             game.setTimerGameInterval(1000);
+
+           
 
             game.makeGame(this);
         }
@@ -139,6 +141,11 @@ namespace Schnupperspiel
 
         private void tmrGame_Tick(object sender, EventArgs e)
         {
+            if (game.getTime() == 0)
+            {
+                game.timeIsUp();
+                game.stopGame();
+            }
         }
     }
 }
