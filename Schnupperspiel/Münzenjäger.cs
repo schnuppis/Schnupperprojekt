@@ -18,6 +18,7 @@ namespace Schnupperspiel
         public int CoinY;
 
         public Panel gamePanel;
+        bool EnemyRichtung = true;
 
         public frmGame()
         {
@@ -93,6 +94,12 @@ namespace Schnupperspiel
             buttonStopp.Enabled = false;
             buttonStopp.Click += new System.EventHandler(game.btnStop_Click);
 
+            Wall wall1 = new Wall();
+            wall1.setPosition(431, 111);
+            wall1.setSize(30, 147);
+            wall1.setColour(255, 255, 255);
+            gamePanel.add(wall1);
+
             gamePanel.add(createPlayer());
             KeyDown += new KeyEventHandler(movePlayer);
 
@@ -105,7 +112,8 @@ namespace Schnupperspiel
             Timer tmrCoin = game.tmrCoin;
             tmrCoin.Tick += new System.EventHandler(this.tmrCoin_Tick);
 
-            
+            Timer tmrEnemy =  game.tmrEnemy;
+            tmrEnemy.Tick += new System.EventHandler(this.tmrEnemy_Tick);
 
             game.makeGame(this);
         }
@@ -121,6 +129,42 @@ namespace Schnupperspiel
 
         }
       
+        private EnemyBot createEnemyBot() 
+        {
+            EnemyBot enemybot = new EnemyBot();
+            enemybot.setSize(50, 50);   
+            enemybot.setSpeed(8);
+            enemybot.setPosition(50, 50, gamePanel);
+            return enemybot;
+        }
+
+        private void moveEnemybot() 
+        {
+            foreach (EnemyBot bot in gamePanel.getEnemyBots()) 
+            {
+            if (EnemyRichtung == true) 
+                {
+                    bot.moveRight();
+                }
+            if (EnemyRichtung == false) 
+                {
+                    bot.moveLeft();
+                }
+            if (bot.getLeft() < bot.getPositionX()) 
+                {
+                    EnemyRichtung = true;
+                }
+            if (bot.getLeft() > 800) 
+                {
+                    EnemyRichtung = false;
+                }
+            if (gamePanel.getPlayer().colidesWith(bot))
+                {
+                    game.stopGame();
+                }
+            }
+        }   
+
         private void movePlayer(object sender, KeyEventArgs key)
         {
             Player player = gamePanel.getPlayer();
@@ -140,12 +184,22 @@ namespace Schnupperspiel
             {
                 player.moveDown();  
             }
+            if (game.checkWallRight()) 
+            { 
             
+            }
             player.setPosition(player.getPositionX(), player.getPositionY());
         } 
 
         private void tmrGame_Tick(object sender, EventArgs e)
         {
+            if (game.getTime() > 0) 
+            {
+                if (gamePanel.getEnemyBots().Count <= 0)
+                {
+                    createEnemyBot();
+                }
+            }
             if (game.getTime() == 0)
             {
                 game.timeIsUp();
@@ -157,6 +211,11 @@ namespace Schnupperspiel
             
                         
                         }
+        }
+
+        private void tmrEnemy_Tick(object sender, EventArgs e) 
+        {
+            moveEnemybot();
         }
 
         private void tmrCoin_Tick(object sender, EventArgs e)
