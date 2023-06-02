@@ -23,12 +23,15 @@ namespace Schnupperspiel
             
             //game.setFormColour(200, 200, 200);
 
-            //gamePanel = new Panel();
-            //gamePanel.setSize();
-            //gamePanel.setColour();
+            gamePanel = new Panel();
+            gamePanel.setSize(500,800);
+            gamePanel.setColour(0,0,0);
            
-
-            
+            Label labelName = new Label();
+            labelName.setPosition(820,480)
+            labelName.setSize(250,55)
+            labelName.setText("Münzenjäger")
+                game.add(labelName)
 
             game.makeGame(this);
         }
