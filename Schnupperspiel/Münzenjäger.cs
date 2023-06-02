@@ -194,7 +194,16 @@ namespace Schnupperspiel
             EnemyBot.setSpeed(15);
             EnemyBot.setPosition(45, 30, gamePanel);
         }
+        /*private void MoveEnemyBot()
+        {
+        foreach(EnemyBot bot in gamePanel.getEnemyBots())
+           
+                if (MoveEnemyBotRight)
+            {
 
+            }
+        }
+        */
 
         }
 }
