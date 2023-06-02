@@ -134,7 +134,7 @@ namespace Schnupperspiel
             EnemyBot enemybot = new EnemyBot();
             enemybot.setSize(50, 50);   
             enemybot.setSpeed(8);
-            enemybot.setPosition(50, 50, gamePanel);
+            enemybot.setPosition(50, 350, gamePanel);
             return enemybot;
         }
 
@@ -168,26 +168,23 @@ namespace Schnupperspiel
         private void movePlayer(object sender, KeyEventArgs key)
         {
             Player player = gamePanel.getPlayer();
-            if (key.KeyCode == Keys.D && game.checkPanelRight())   
+            if (key.KeyCode == Keys.D && game.checkPanelRight() && !game.checkWallRight(player, player.getSpeed()) )   
             {
                 player.moveRight();
             }
-            if (key.KeyCode == Keys.A && game.checkPanelLeft())
+            if (key.KeyCode == Keys.A && game.checkPanelLeft() && !game.checkWallLeft(player, player.getSpeed()))
             {
                 player.moveLeft();  
             }
-            if (key.KeyCode == Keys.W && game.checkPanelTop())
+            if (key.KeyCode == Keys.W && game.checkPanelTop() && !game.checkWallTop(player, player.getSpeed()))
             {
                 player.moveUp();
             }
-            if (key.KeyCode == Keys.S && game.checkPanelBottom())
+            if (key.KeyCode == Keys.S && game.checkPanelBottom() && !game.checkWallBottom(player, player.getSpeed()))
             {
                 player.moveDown();  
             }
-            if (game.checkWallRight()) 
-            { 
             
-            }
             player.setPosition(player.getPositionX(), player.getPositionY());
         } 
 
