@@ -1,4 +1,5 @@
 using System;
+using System.Drawing.Text;
 using System.Runtime.Remoting.Channels;
 using System.Windows.Forms;
 
@@ -50,8 +51,8 @@ namespace Schnupperspiel
                 {
                     createCoin();
                 }
-
-                
+    
+              
             }
 
         }
@@ -152,11 +153,13 @@ namespace Schnupperspiel
         game.setTime(120);
         game.setTimerGameInterval(1000);
 
-            Timer tmrCoin = game.tmrGame;
-            tmrCoin.Tick += new System.EventHandler(this.funkcoin);
+        Timer tmrEnemy = game.tmrEnemy;
+        tmrEnemy.Tick += new System.EventHandler(this.tmrEnemy_Tick);
 
+        Timer tmrCoin = game.tmrGame;
+        tmrCoin.Tick += new System.EventHandler(this.funkcoin);
 
-            game.makeGame(this);
+        game.makeGame(this);
 
     }
     private void movePlayer(object sender, KeyEventArgs key)
@@ -194,6 +197,11 @@ namespace Schnupperspiel
         private void tmrCoin_Tick(object sender, EventArgs e)
         {
            
+        }
+
+        private void tmrEnemy_Tick(object sender, EventArgs args)
+        {
+
         }
 
 
