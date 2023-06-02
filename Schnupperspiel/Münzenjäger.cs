@@ -1,4 +1,5 @@
 using System;
+using System.Drawing.Text;
 using System.Windows.Forms;
 
 // !! ALS STARTDATEI "Schnupperspiel.csproj - Debug|AnyCPU" auswählen !!
@@ -18,14 +19,24 @@ namespace Schnupperspiel
         {
             InitializeComponent();
         }
+
+        private Player CreatePlayer()
+        {
+            Player Player = new Player();
+            Player.setSize(50, 50);
+            Player.setSpeed(4);
+            Player.setPosition(xPlayer, yPlayer);
+            return Player;
+        }
+
         private void loadGame(object sender, EventArgs e)
         {
-            
+
             game.setFormColour(200, 200, 200);
 
             gamePanel = new Panel();
-            gamePanel.setSize(800,500);
-            gamePanel.setColour(0,0,0);
+            gamePanel.setSize(800, 500);
+            gamePanel.setColour(0, 0, 0);
             game.setPanel(gamePanel);
 
             Label time = new Label();
@@ -79,35 +90,43 @@ namespace Schnupperspiel
             Stop.Enabled = false;
             Stop.Click += new System.EventHandler(game.btnStop_Click);
 
+            KeyDown += new KeyEventHandler(movePlayer);
+
             game.add(Start);
             game.add(Stop);
-            
 
+            game.add(CreatePlayer());
 
             game.makeGame(this);
         }
+
+        
+
         private void movePlayer(object sender, KeyEventArgs key)
         {
-            /*Player player = gamePanel.getPlayer();
+            Player Player = gamePanel.getPlayer();
             if (key.KeyCode == Keys.D && game.checkPanelRight())
             {
-                
+                Player.moveRight();
             }
             if (key.KeyCode == Keys.A && game.checkPanelLeft())
             {
-                
+                Player.moveLeft();
             }
             if (key.KeyCode == Keys.W && game.checkPanelTop())
             {
-                
+                Player.moveUp();
             }
             if (key.KeyCode == Keys.S && game.checkPanelBottom())
             {
-                
-            }*/
+                Player.moveDown();
+            }
+            Player.getPositionX();
+            Player.getPositionY();
         }
         /*private void tmrGame_Tick(object sender, EventArgs e)
         {
+        
         }*/
     }
 }
