@@ -67,7 +67,24 @@ namespace Schnupperspiel
             game.addTimeText(Time);
             game.addPointsText(Points);
             game.addHighscoreText(Highscore);
-
+            
+            Button start= new Button();
+            start.setPosition(200, 550);
+            start.setSize(181, 62);
+            start.setColour(0, 255, 0);
+            start.setText("start");
+            game.add(start);
+            start.Click += new System.EventHandler(game.btnStart_Click);
+            
+            Button stop = new Button();
+            stop.setPosition(423, 550);
+            stop.setSize(181, 62);
+            stop.setColour(255, 0, 0);
+            stop.setText("stop");
+            game.add(stop);
+            stop.Enabled = false;
+            stop.Click += new System.EventHandler(game.btnStop_Click);
+            
             game.makeGame(this);
         }
         private void movePlayer(object sender, KeyEventArgs key)
