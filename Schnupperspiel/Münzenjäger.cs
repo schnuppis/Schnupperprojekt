@@ -111,7 +111,11 @@ namespace Schnupperspiel
             Timer tmrEnemy = game.tmrEnemy;
             tmrEnemy.Tick += new System.EventHandler(this.tmrEnemy_Tick);
 
-
+            Wall wall = new Wall();
+            wall.setPosition(431, 111);
+            wall.setSize(30, 147);
+            wall.setColour(255, 255, 255);
+            gamePanel.add(wall);
 
 
 
