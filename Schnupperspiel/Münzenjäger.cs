@@ -9,13 +9,15 @@ namespace Schnupperspiel
     {
         public Game game = new Game();
         private Random random = new Random();
+
         public static int xPlayer = 750;
         public static int yPlayer = 450;
 
+
         public int CoinX = 0;
         public int CoinY = 0;
-         
 
+        public Boolean EnemyTurn = true;
 
         public Panel gamePanel;
 
@@ -23,49 +25,50 @@ namespace Schnupperspiel
         {
             InitializeComponent();
         }
-        
 
-        
-        
+
+
+
         private void loadGame(object sender, EventArgs e)
         {
-            
+
             game.setFormColour(200, 200, 200);
 
             gamePanel = new Panel();
-            gamePanel.setSize(800,500);
-            gamePanel.setColour(0,0,0);
+            gamePanel.setSize(800, 500);
+            gamePanel.setColour(0, 0, 0);
             game.setPanel(gamePanel);
-           
+
             Label labelName = new Label();
             labelName.setPosition(820, 480);
             labelName.setSize(250, 55);
             labelName.setText("Münzenjäger:");
             game.add(labelName);
-           
+
             Label timerName = new Label();
-            timerName.setPosition(820,10);
-            timerName.setSize(220,55);
+            timerName.setPosition(820, 10);
+            timerName.setSize(220, 55);
             timerName.setText("Time:");
             game.add(timerName);
-            
+
             Label pointsName = new Label();
-            pointsName.setPosition(820,70);
-            pointsName.setSize(220,55);
+            pointsName.setPosition(820, 70);
+            pointsName.setSize(220, 55);
             pointsName.setText("Points:");
             game.add(pointsName);
-            
+
             Label highscoreName = new Label();
             highscoreName.setPosition(820, 130);
             highscoreName.setSize(220, 55);
             highscoreName.setText("Highscore:");
             game.add(highscoreName);
-            
+
             Text textTime = new Text();
             textTime.setPosition(1050, 10);
+
             textTime.setSize(94, 44);
             game.addTimeText(textTime);
-            
+
             Text textPoints = new Text();
             textPoints.setPosition(1050, 70);
             textPoints.setSize(94, 44);
@@ -75,7 +78,7 @@ namespace Schnupperspiel
             textHighscore.setPosition(1050, 130);
             textHighscore.setSize(94, 44);
             game.addHighscoreText(textHighscore);
-            
+
             Button buttonName = new Button();
             buttonName.setPosition(12, 550);
             buttonName.setSize(181, 62);
@@ -88,13 +91,13 @@ namespace Schnupperspiel
             Button stopButton = new Button();
             stopButton.setPosition(423, 550);
             stopButton.setSize(181, 62);
-            stopButton.setColour(255,255, 255);
+            stopButton.setColour(255, 255, 255);
             stopButton.setText("Stop");
             game.add(stopButton);
 
-            
-            
-            
+
+
+
             stopButton.Enabled = false;
 
             stopButton.Click += new System.EventHandler(game.btnStop_Click);
@@ -109,9 +112,12 @@ namespace Schnupperspiel
 
             game.setTime(60);
             game.setTimerGameInterval(1000);
-            
+
             Timer tmrCoin = game.tmrCoin;
             tmrCoin.Tick += new System.EventHandler(this.tmrCoin_Tick);
+
+            Timer tmrEnemy = game.tmrEnemy;
+            tmrEnemy.Tick += new System.EventHandler(this.tmrEnemy_Tick);
 
 
             game.makeGame(this);
@@ -124,8 +130,8 @@ namespace Schnupperspiel
             Player player = new Player();
 
             player.setSize(50, 50);
-            player.setPosition(5, 5);
-            player.setSpeed(4);
+            player.setPosition(500, 300);
+            player.setSpeed(15);
 
             return player;
 
@@ -135,8 +141,8 @@ namespace Schnupperspiel
         public void coins()
         {
             Coin coin = new Coin();
-            coin.setSize(20,20);
-            coin.setPosition(CoinX, CoinY,gamePanel);
+            coin.setSize(20, 20);
+            coin.setPosition(CoinX, CoinY, gamePanel);
             coin.addToList(game.getCoinList());
         }
 
@@ -162,12 +168,12 @@ namespace Schnupperspiel
             }
             player.setPosition(player.getPositionX(), player.getPositionY());
         }
-        
+
         private void tmrCoin_Tick(object sender, EventArgs e)
         {
-            while (game.getCoinList().Count<100)
+            while (game.getCoinList().Count < 100)
             {
-                CoinX = random.Next(20, gamePanel.getWidth() - 40);                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
+                CoinX = random.Next(20, gamePanel.getWidth() - 40);
                 CoinY = random.Next(20, gamePanel.getHeight() - 40);
 
                 if (game.checkCoinPosition(CoinX, CoinY))
@@ -178,9 +184,53 @@ namespace Schnupperspiel
             }
             game.LookForCoin(20);
             game.setScore(game.getPoints());
-            
-        }   
 
+        }
+
+        private void createEnemyBot()
+        {
+            EnemyBot enemy = new EnemyBot();
+            enemy.setSize(50, 50);
+            enemy.setSpeed(15);
+            enemy.setPosition(0, 0, gamePanel);
+        }
+
+
+        private void tmrEnemy_Tick(object sender, EventArgs e)
+        {
+            moveEnemy();
+        }
+        
+        private void moveEnemy()
+        {
+            foreach (EnemyBot bot in gamePanel.getEnemyBots())
+            {
+                if (EnemyTurn)
+                {
+                    bot.moveRight();
+                }
+                else
+                {
+                    bot.moveLeft();
+                }
+            
+                if (bot.getLeft() > 740)
+                {
+                    EnemyTurn = false;
+                }
+            
+                if (bot.getLeft() < bot.getPositionX())
+                {
+                    EnemyTurn = true;
+                }
+                if (bot.colidesWith(gamePanel.getPlayer())){
+                    game.stopGame();
+                }
+            }
+
+                    
+        }
+        
         private void tmrGame_Tick(object sender, EventArgs e)
         {
             game.getTime();
@@ -188,9 +238,12 @@ namespace Schnupperspiel
             if (game.getTime() <= 0)
             {
                 game.timeIsUp();
-                game.stopGame();
+                game.stopGame();   
+            }
 
-                
+            if (gamePanel.getEnemyBots().Count == 0)
+            {
+                createEnemyBot();
             }
         }
     }
