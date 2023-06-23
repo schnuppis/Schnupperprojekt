@@ -35,6 +35,7 @@ namespace Schnupperspiel
     }
     public class Panel : System.Windows.Forms.Panel
     {
+        private int v;
 
         public Panel()
         {
@@ -42,6 +43,11 @@ namespace Schnupperspiel
             Location = new System.Drawing.Point(12, 12);
             Name = "pnlGame";
             Visible = false;
+        }
+
+        public Panel(int v)
+        {
+            this.v = v;
         }
 
         public Player getPlayer()
@@ -117,6 +123,10 @@ namespace Schnupperspiel
             return Height;
         }
 
+        internal void setSize(int v)
+        {
+            throw new NotImplementedException();
+        }
     }
 
     public class Label : System.Windows.Forms.Label
