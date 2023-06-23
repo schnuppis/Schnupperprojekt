@@ -1,4 +1,5 @@
 using System;
+using System.Data;
 using System.Windows.Forms;
 
 // !! ALS STARTDATEI "Schnupperspiel.csproj - Debug|AnyCPU" auswählen !!
@@ -11,13 +12,15 @@ namespace Schnupperspiel
         private Random random = new Random();
         public static int xPlayer = 750;
         public static int yPlayer = 450;
-
+        public static int xcoin = 450;
+        public static int ycoin = 450;
         public Panel gamePanel;
 
         public frmGame()
         {
             InitializeComponent();
         }
+        
         private void loadGame(object sender, EventArgs e)
         {
             
@@ -82,7 +85,17 @@ namespace Schnupperspiel
             gamePanel.add(createPlayer());
             //
             KeyDown += new KeyEventHandler(movePlayer);
+
+            Timer tmrGame = game.tmrGame;
+            tmrGame.Tick += new System.EventHandler(this.tmrGame_Tick);
+            game.setTime(60);
+            game.setTimerGameInterval(1000);
+
+            Timer tmrCoin = game.tmrCoin;
+            tmrCoin.Tick += new System.EventHandler(this.tmrCoin_Tick);
+
             
+
             game.makeGame(this);
         }
         private Player createPlayer()
@@ -115,8 +128,48 @@ namespace Schnupperspiel
             }
             player.setPosition(player.getPositionX(), player.getPositionY());
         }
-        /*private void tmrGame_Tick(object sender, EventArgs e)
+        private void tmrGame_Tick(object sender, EventArgs e)
         {
-        }*/
+            
+            if ( game.getTime() <= 0)
+            {
+                game.timeIsUp();
+                game.stopGame();
+            }
+        }
+        public void coin()
+        {
+            Coin coin = new Coin();
+            coin.addToList(game.getCoinList());
+            coin.setSize(20, 20);
+            coin.setPosition(xcoin, ycoin, gamePanel);
+
+            
+            
+        }
+        private void tmrCoin_Tick(object sender, EventArgs e)
+        {
+            
+            while (game.getCoinList().Count <= 10 ) 
+            {
+                xcoin = random.Next(gamePanel.getWidth() - 40);
+                ycoin = random.Next(gamePanel.getHeight() - 40);
+                if (game.checkCoinPosition(xcoin, ycoin))
+                {
+                    coin();
+                }
+            }
+            game.LookForCoin(1);
+            game.setScore(game.getPoints());
+        }
+        private void enemy()
+        {
+            Enemy enemy = new Enemy();
+            enemy.setSize(50, 50);
+            enemy.setSpeed(4);
+            enemy.setPosition(0, 0 , gamePanel);
+
+            
+        }
     }
 }
