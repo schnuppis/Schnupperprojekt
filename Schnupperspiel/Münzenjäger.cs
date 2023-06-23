@@ -27,9 +27,29 @@ namespace Schnupperspiel
             gamePanel.setSize(800,500);
             gamePanel.setColour(0,0,0);
             game.setPanel(gamePanel);
-           
-
-            
+            Label labelName= new Label();
+            labelName.setPosition(820, 480);
+            labelName.setSize(250, 55);
+            labelName.setText("Münzenjäger:");
+            game.add(labelName);
+            //Time
+            Label time= new Label();
+            time.setPosition(820, 10);
+            time.setSize(220, 55);
+            time.setText("Time:");
+            game.add(labelName);
+            //Points
+            Label points = new Label();
+            labelName.setPosition(820, 70);
+            labelName.setSize(220, 55);
+            labelName.setText("Points:");
+            game.add(labelName);
+            //highscore
+            Label highscore = new Label();
+            labelName.setPosition(820, 130);
+            labelName.setSize(220, 55);
+            labelName.setText("Highscore:");
+            game.add(labelName);
 
             game.makeGame(this);
         }
