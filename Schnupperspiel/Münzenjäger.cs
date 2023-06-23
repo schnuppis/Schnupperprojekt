@@ -149,7 +149,7 @@ namespace Schnupperspiel
         {
             EnemyBot enemy = new EnemyBot();
             enemy.setSize(50, 50);
-            enemy.setSpeed(5);
+            enemy.setSpeed(7);
             enemy.setPosition(400, 200, gamePanel);
 
         }
@@ -217,9 +217,14 @@ namespace Schnupperspiel
 
                     shouldMoveLeft = false;
                 }
-
-            }
+                if (bot.colidesWith(gamePanel.getPlayer())){
+                    game.stopGame();
+                }
+                }
+                
+                
         }
+        
 
 
         private void tmrGame_Tick(object sender, EventArgs e)
