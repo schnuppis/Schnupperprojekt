@@ -10,9 +10,12 @@ namespace Schnupperspiel
     {
         public Game game = new Game();
         private Random random = new Random();
+        
         public static int xPlayer = 750;
         public static int yPlayer = 450;
 
+        private Boolean enemyTurn = true;
+        
         public int coinX = 0;
         public int coinY = 0;
         
@@ -99,11 +102,14 @@ namespace Schnupperspiel
             Timer tmrGame = game.tmrGame;
             tmrGame.Tick += new System.EventHandler(this.tmrGame_Tick);
 
-            game.setTime(20);
+            game.setTime(60);
             game.setTimerGameInterval(1000);
 
             Timer tmrCoin = game.tmrCoin;
             tmrCoin.Tick += new System.EventHandler(this.tmrCoin_Tick);
+
+            Timer tmrEnemy = game.tmrEnemy;
+            tmrEnemy.Tick += new System.EventHandler(this.tmrEnemy_Tick);
 
 
 
@@ -117,7 +123,7 @@ namespace Schnupperspiel
             Player player = new Player();
 
             player.setSize(50, 50);
-            player.setSpeed(4);
+            player.setSpeed(8);
             player.setPosition(xPlayer, yPlayer);
 
 
@@ -157,10 +163,12 @@ namespace Schnupperspiel
             {
                 game.timeIsUp();
                 game.stopGame();
-
-                
             }
 
+            if (gamePanel.getEnemyBots().Count == 0)
+            {
+                createEnemyBot();
+            }
 
 
         }
@@ -181,7 +189,52 @@ namespace Schnupperspiel
             game.LookForCoin(10);
             game.setScore(game.getPoints());
         }
+        private void tmrEnemy_Tick(object sender, EventArgs e)
+        {
+            moveEnemy();
+        }
 
+        private void createEnemyBot()
+        {
+            EnemyBot enemy = new EnemyBot();
+            enemy.setSize(50, 50);
+            enemy.setSpeed(8);
+            enemy.setPosition(0, 0, gamePanel);
+        }
+
+        private void moveEnemy()
+        {
+            foreach(EnemyBot bot in gamePanel.getEnemyBots())
+            {
+                if (enemyTurn)
+                {
+                    bot.moveRight(); 
+                }
+                else 
+                { 
+                    bot.moveLeft();
+                }
+                
+                if (bot.getLeft() > 750)
+                { 
+                    enemyTurn = false; 
+                }
+                
+                if(bot.getLeft() < bot.getPositionX())
+                {
+                    enemyTurn = true;
+                }
+
+                if (bot.colidesWith(gamePanel.getPlayer()))
+                {
+                    game.stopGame();
+                }
+
+            }
+
+
+
+        }
         public void coins()
         {
             Coin coin = new Coin();
