@@ -12,6 +12,9 @@ namespace Schnupperspiel
         public static int xPlayer = 750;
         public static int yPlayer = 450;
 
+        public int CoinX = 0;
+        public int CoinY = 0;
+
         public Panel gamePanel;
 
         public frmGame()
@@ -83,16 +86,27 @@ namespace Schnupperspiel
             stopButton.setText("Stop");
             game.add(stopButton);
 
+            
+            
+            
             stopButton.Enabled = false;
 
-            stopButton.Click += new System.EventHandler(game.btnStart_Click);
+            stopButton.Click += new System.EventHandler(game.btnStop_Click);
 
             gamePanel.add(createPlayer());
 
             KeyDown += new KeyEventHandler(movePlayer);
 
 
+            Timer tmrGame = game.tmrGame;
+            tmrGame.Tick += new System.EventHandler(this.tmrGame_Tick);
+
+            game.setTime(60);
+            game.setTimerGameInterval(1000);
             
+           
+
+
             game.makeGame(this);
         }
 
@@ -109,6 +123,14 @@ namespace Schnupperspiel
             return player;
 
 
+        }
+
+        public void coins()
+        {
+            Coin coin = new Coin();
+            coin.setSize(20,20);
+            
+            coin.addToList(game.getCoinList());
         }
 
 
@@ -133,8 +155,15 @@ namespace Schnupperspiel
             }
             player.setPosition(player.getPositionX(), player.getPositionY());
         }
-        /*private void tmrGame_Tick(object sender, EventArgs e)
+        private void tmrGame_Tick(object sender, EventArgs e)
         {
-        }*/
+            game.getTime();
+
+            if (game.getTime() <= 0)
+            {
+                game.timeIsUp();
+                game.stopGame();
+            }
+        }
     }
 }
