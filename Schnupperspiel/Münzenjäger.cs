@@ -76,6 +76,29 @@ namespace Schnupperspiel
            
             game.addHighscoreText(texthighscore);
 
+            Button buttonName = new Button();
+
+            buttonName.setPosition(12, 550);
+            buttonName.setSize(181,62);
+            buttonName.setColour(255, 255, 255);
+            buttonName.setText("Start");
+
+            game.add(buttonName);
+
+            buttonName.Click += new System.EventHandler(game.btnStart_Click);
+
+            game.add(buttonName);
+            
+            Button buttonText = new Button();
+
+            buttonText.setPosition(423, 550);
+            buttonText.setSize(181, 62);
+            buttonText.setColour(255, 255, 255);
+            buttonText.setText("Stop");
+
+            game.add(buttonText);
+
+
 
 
 
