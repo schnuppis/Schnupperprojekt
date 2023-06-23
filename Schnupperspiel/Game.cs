@@ -830,8 +830,21 @@ namespace Schnupperspiel
          */
 
         //Startknopf-Klickevent
+        int stop = 0;
         public void btnStart_Click(object sender, EventArgs e)
         {
+            
+
+            if (stop == 1)
+            {
+                stop = 0;
+                stopGame();
+            }
+            else
+            {
+                stop++;
+            }
+
             //Zeit setzen
             time = resetTime;
             txtTime.Text = time.ToString();
