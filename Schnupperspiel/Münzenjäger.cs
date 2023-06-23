@@ -59,13 +59,13 @@ namespace Schnupperspiel
             Text textTime = new Text();
 
             Text textPoints = new Text();
-            textPoints.setPosition(1055, 10);
+            textPoints.setPosition(1055, 70);
             textPoints.setSize(94, 44);
 
             game.addPointsText(textPoints);
 
             Text texttime = new Text();
-            texttime.setPosition(1055, 70);
+            texttime.setPosition(1055, 10);
             texttime.setSize(94, 44);
 
             game.addTimeText(texttime);
@@ -113,6 +113,12 @@ namespace Schnupperspiel
             game.setTime(30);
             game.setTimerGameInterval(1000);
 
+            gamePanel.add(createCoin());
+
+
+
+
+
 
 
             game.makeGame(this);
@@ -125,6 +131,13 @@ namespace Schnupperspiel
             player.setPosition(xPlayer, yPlayer);
             
            return player;
+
+        }
+        private void createCoins()
+        {
+            Coin coin = new Coin();
+            coin.setSize(20, 20);
+            coin.addToList(game.getCoinList());
 
         }
 
@@ -158,6 +171,7 @@ namespace Schnupperspiel
             if (game.getTime() == 0)
             {
                 game.stopGame();
+                game.timeIsUp();
             }
         }
     }
