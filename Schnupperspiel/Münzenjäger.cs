@@ -11,7 +11,8 @@ namespace Schnupperspiel
         private Random random = new Random();
         public static int xPlayer = 750;
         public static int yPlayer = 450;
-
+        public static int xCoin = 450;
+        public static int yCoin = 450;
         public Panel gamePanel;
 
         public frmGame()
@@ -27,6 +28,7 @@ namespace Schnupperspiel
             gamePanel.setSize(800,500);
             gamePanel.setColour(0,0,0);
             game.setPanel(gamePanel);
+
             Label labelName= new Label();
             labelName.setPosition(820, 480);
             labelName.setSize(250, 55);
@@ -54,44 +56,119 @@ namespace Schnupperspiel
             Text outtime = new Text();
             outtime.setPosition(1050, 10);
             outtime.setSize(94, 44);
-            game.addHighscoreText(outtime);
+            game.addTimeText(outtime);
 
             Text outpoints = new Text();
             outpoints.setPosition(1050, 70);
             outpoints.setSize(94, 44);
-            game.addHighscoreText(outpoints);
+            game.addPointsText(outpoints);
 
             Text outhigh = new Text();
             outhigh.setPosition(1050, 130);
             outhigh.setSize(94, 44);
             game.addHighscoreText(outhigh);
+           
+            Button button = new Button();
+            button.setPosition(12, 550);
+            button.setSize(181, 62);
+            button.setColour(255, 255, 255);
+            button.setText("Start");
+            button.Click += new System.EventHandler(game.btnStart_Click);
+            game.add(button);
+
+            Button stop = new Button();
+            stop.setPosition(423, 550);
+            stop.setSize(181, 62);
+            stop.setColour(255, 255, 255);
+            stop.setText("Stop");
+            stop.Click += new System.EventHandler(game.btnStop_Click);
+            stop.Enabled = false;
+            game.add(stop);
+
+            gamePanel.add(createPlayer());
+            KeyDown += new KeyEventHandler(movePlayer);
+
+            Timer tmrGame = game.tmrGame;
+            tmrGame.Tick += new System.EventHandler(this.tmrGame_Tick);
+            game.setTime(100);
+            game.setTimerGameInterval(1000);
+
+            Timer tmrCoin = game.tmrCoin;
+            tmrCoin.Tick += new System.EventHandler(this.timerCoin_Tick);
+
+            
+            
+
+
+
 
 
 
             game.makeGame(this);
         }
+        private Player createPlayer()
+        {
+            Player player = new Player();
+
+            player.setSize(50, 50);
+            player.setSpeed(4);
+            player.setPosition(xPlayer, yPlayer);
+            return player;
+
+        }
         private void movePlayer(object sender, KeyEventArgs key)
         {
-            /*Player player = gamePanel.getPlayer();
+            Player player = gamePanel.getPlayer();
             if (key.KeyCode == Keys.D && game.checkPanelRight())
             {
+                player.moveRight();
                 
             }
             if (key.KeyCode == Keys.A && game.checkPanelLeft())
             {
+                player.moveLeft();
                 
             }
             if (key.KeyCode == Keys.W && game.checkPanelTop())
             {
+                player.moveUp();
                 
             }
             if (key.KeyCode == Keys.S && game.checkPanelBottom())
             {
+                player.moveDown();
                 
-            }*/
+            }
+            player.setPosition(player.getPositionX(), player.getPositionY());
+            
         }
-        /*private void tmrGame_Tick(object sender, EventArgs e)
+        private void tmrGame_Tick(object sender, EventArgs e)
+            
         {
-        }*/
+            if (game.getTime() <= 0) {game.timeIsUp();
+            game.stopGame();}
+                
+        }
+        private void createCoin()
+        {
+            Coin coin = new Coin();
+            coin.setSize(20, 20);
+            coin.addToList(game.getCoinList());
+            coin.setPosition(xCoin, xCoin, gamePanel);
+            
+
+        }
+        private void timerCoin_Tick(object sender, EventArgs e)
+        {
+            while (game.getCoinList().Count < 10) 
+
+
+            {
+                random.Next(20, gamePanel.getWidth() - 40);
+                random.Next(20, gamePanel.getHeight() - 40);
+            }
+        }
+
+
     }
 }
