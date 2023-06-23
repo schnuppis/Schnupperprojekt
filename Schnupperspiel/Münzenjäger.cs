@@ -117,7 +117,6 @@ namespace Schnupperspiel
 
             Timer timerCoin = game.tmrCoin;
             timerCoin.Tick += new System.EventHandler(this.tmrCoin);
-            game.getCoinList().Count
 
 
 
@@ -143,18 +142,27 @@ namespace Schnupperspiel
             coin.addToList(game.getCoinList());
             coin.setPosition(coinX, coinY,gamePanel);
         }
+
+        private int GetCoinY()
+        {
+            return coinY;
+        }
+
         private void tmrCoin(object sender, EventArgs e)
         {
             while (game.getCoinList().Count<=20)
             {
                 createCoins();
-                coinX=random.Next(20, gamePanel.getWidth()-40)
-                coinY= random.Next(20, gamePanel.getWidth() - 40) 
-
-
+                coinX = random.Next(20, gamePanel.getWidth() - 40);
+                coinY = random.Next(20, gamePanel.getWidth() - 40);
             }
-            
+            game.LookForCoin(10);
+            game.getPoints();
         }
+       
+
+
+
 
 
 
