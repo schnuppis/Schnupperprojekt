@@ -14,6 +14,8 @@ namespace Schnupperspiel
 
         public int CoinX = 0;
         public int CoinY = 0;
+         
+
 
         public Panel gamePanel;
 
@@ -21,6 +23,10 @@ namespace Schnupperspiel
         {
             InitializeComponent();
         }
+        
+
+        
+        
         private void loadGame(object sender, EventArgs e)
         {
             
@@ -104,7 +110,8 @@ namespace Schnupperspiel
             game.setTime(60);
             game.setTimerGameInterval(1000);
             
-           
+            Timer tmrCoin = game.tmrCoin;
+            tmrCoin.Tick += new System.EventHandler(this.tmrCoin_Tick);
 
 
             game.makeGame(this);
@@ -129,7 +136,7 @@ namespace Schnupperspiel
         {
             Coin coin = new Coin();
             coin.setSize(20,20);
-            
+            coin.setPosition(CoinX, CoinY,gamePanel);
             coin.addToList(game.getCoinList());
         }
 
@@ -155,6 +162,25 @@ namespace Schnupperspiel
             }
             player.setPosition(player.getPositionX(), player.getPositionY());
         }
+        
+        private void tmrCoin_Tick(object sender, EventArgs e)
+        {
+            while (game.getCoinList().Count<100)
+            {
+                CoinX = random.Next(20, gamePanel.getWidth() - 40);                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
+                CoinY = random.Next(20, gamePanel.getHeight() - 40);
+
+                if (game.checkCoinPosition(CoinX, CoinY))
+                {
+                    coins();
+
+                }
+            }
+            game.LookForCoin(20);
+            game.setScore(game.getPoints());
+            
+        }   
+
         private void tmrGame_Tick(object sender, EventArgs e)
         {
             game.getTime();
@@ -163,6 +189,8 @@ namespace Schnupperspiel
             {
                 game.timeIsUp();
                 game.stopGame();
+
+                
             }
         }
     }
