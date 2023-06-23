@@ -121,7 +121,8 @@ namespace Schnupperspiel
             timerCoin.Tick += new System.EventHandler(this.tmrCoin);
 
 
-
+            Timer enemy = game.tmrEnemy;
+            enemy.Tick += new System.EventHandler(this.tmrEnemy);
 
 
 
@@ -144,6 +145,16 @@ namespace Schnupperspiel
             coin.addToList(game.getCoinList());
             coin.setPosition(coinX, coinY,gamePanel);
         }
+        private void createEnemyBot()
+        {
+            EnemyBot enemy = new EnemyBot();
+            enemy.setSize(50, 50);
+            enemy.setSpeed(5);
+            enemy.setPosition(400, 200, gamePanel);
+
+        }
+
+
 
         private int GetCoinY()
         {
@@ -195,6 +206,18 @@ namespace Schnupperspiel
                 {
                     bot.moveRight();
                 }
+
+
+                if (bot.getLeft() > 700)
+                {
+                    shouldMoveLeft = true;
+                  
+                }
+                if (bot.getLeft() < 100){
+
+                    shouldMoveLeft = false;
+                }
+
             }
         }
 
@@ -205,6 +228,11 @@ namespace Schnupperspiel
             {
                 game.stopGame();
                 game.timeIsUp();
+            }
+
+            if (game.getTime() == 30)
+                {
+                createEnemyBot();
             }
         }
     }
