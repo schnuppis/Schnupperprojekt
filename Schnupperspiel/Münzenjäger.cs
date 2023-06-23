@@ -77,29 +77,43 @@ namespace Schnupperspiel
             game.add(startb);
             //click button 
             startb.Click += new System.EventHandler(game.btnStart_Click);
-
+            
+            //add player
+            gamePanel.add(createPlayer());
+            //
+            KeyDown += new KeyEventHandler(movePlayer);
             
             game.makeGame(this);
         }
+        private Player createPlayer()
+        {
+            Player player = new Player();
+            player.setSize(50, 50);
+            player.setSpeed(4);
+            player.setPosition(xPlayer, yPlayer);   
+            
+            return player;
+        }
         private void movePlayer(object sender, KeyEventArgs key)
         {
-            /*Player player = gamePanel.getPlayer();
+            Player player = gamePanel.getPlayer();
             if (key.KeyCode == Keys.D && game.checkPanelRight())
             {
-                
+                player.moveRight();
             }
             if (key.KeyCode == Keys.A && game.checkPanelLeft())
             {
-                
+                player.moveLeft();
             }
             if (key.KeyCode == Keys.W && game.checkPanelTop())
             {
-                
+                player.moveUp();
             }
             if (key.KeyCode == Keys.S && game.checkPanelBottom())
             {
-                
-            }*/
+                player.moveDown();
+            }
+            player.setPosition(player.getPositionX(), player.getPositionY());
         }
         /*private void tmrGame_Tick(object sender, EventArgs e)
         {

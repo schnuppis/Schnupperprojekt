@@ -833,7 +833,7 @@ namespace Schnupperspiel
         int stop = 0;
         public void btnStart_Click(object sender, EventArgs e)
         {
-            
+
 
             if (stop == 1)
             {
@@ -910,6 +910,7 @@ namespace Schnupperspiel
 
             //Gegnertimer
             tmrEnemy.Enabled = true;
+              
         }
 
         //Stopknopf-Klickevent
