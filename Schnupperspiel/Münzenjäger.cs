@@ -13,6 +13,8 @@ namespace Schnupperspiel
         public static int yPlayer = 450;
 
         public Panel gamePanel;
+        public int coinX = 0;
+        public int coinY = 0;
 
         public frmGame()
         {
@@ -113,8 +115,9 @@ namespace Schnupperspiel
             game.setTime(30);
             game.setTimerGameInterval(1000);
 
-            gamePanel.add(createCoin());
-
+            Timer timerCoin = game.tmrCoin;
+            timerCoin.Tick += new System.EventHandler(this.tmrCoin);
+            game.getCoinList().Count
 
 
 
@@ -138,8 +141,23 @@ namespace Schnupperspiel
             Coin coin = new Coin();
             coin.setSize(20, 20);
             coin.addToList(game.getCoinList());
-
+            coin.setPosition(coinX, coinY,gamePanel);
         }
+        private void tmrCoin(object sender, EventArgs e)
+        {
+            while (game.getCoinList().Count<=20)
+            {
+                createCoins();
+                coinX=random.Next(20, gamePanel.getWidth()-40)
+                coinY= random.Next(20, gamePanel.getWidth() - 40) 
+
+
+            }
+            
+        }
+
+
+
 
         private void movePlayer(object sender, KeyEventArgs key)
         {
