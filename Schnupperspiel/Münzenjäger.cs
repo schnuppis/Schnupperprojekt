@@ -90,14 +90,18 @@ namespace Schnupperspiel
 
             Timer tmrGame = game.tmrGame;
             tmrGame.Tick += new System.EventHandler(this.tmrGame_Tick);
-            game.setTime(100);
+            game.setTime(10);
             game.setTimerGameInterval(1000);
 
             Timer tmrCoin = game.tmrCoin;
             tmrCoin.Tick += new System.EventHandler(this.timerCoin_Tick);
 
+            Timer tmrEnemy = game.tmrEnemy;
+            tmrEnemy.Tick += new System.EventHandler(this.tmrEnemy_Tick);
+
             
-            
+
+
 
 
 
@@ -143,10 +147,15 @@ namespace Schnupperspiel
             
         }
         private void tmrGame_Tick(object sender, EventArgs e)
-            
+
         {
-            if (game.getTime() <= 0) {game.timeIsUp();
-            game.stopGame();}
+            if (game.getTime() <= 0) { game.timeIsUp();
+                game.stopGame(); }
+            if (game.getTime() == 10)
+            {
+                createEnemy();
+            }
+            
                 
         }
         private void createCoin()
@@ -154,21 +163,42 @@ namespace Schnupperspiel
             Coin coin = new Coin();
             coin.setSize(20, 20);
             coin.addToList(game.getCoinList());
-            coin.setPosition(xCoin, xCoin, gamePanel);
+            coin.setPosition(xCoin, yCoin, gamePanel);
             
 
         }
         private void timerCoin_Tick(object sender, EventArgs e)
         {
-            while (game.getCoinList().Count < 10) 
-
-
+            while (game.getCoinList().Count < 10)
             {
-                random.Next(20, gamePanel.getWidth() - 40);
-                random.Next(20, gamePanel.getHeight() - 40);
+                
+
+               xCoin = random.Next(20, gamePanel.getWidth() - 40);
+               yCoin = random.Next(20, gamePanel.getHeight() - 40);
+                game.checkCoinPosition(xCoin, yCoin);
+                if (game.checkCoinPosition(xCoin, yCoin))
+                {
+                    createCoin();
+                }
+               
+            }
+            game.LookForCoin(1);
+            game.setScore(game.getPoints());
+        }
+        private void tmrEnemy_Tick(object sender, EventArgs e)
+        {
+            
+            foreach (EnemyBot bot in gamePanel.getEnemyBots())
+            {
+
             }
         }
-
-
+        private void createEnemy()
+        {
+            Enemy enemy = new Enemy();
+            enemy.setSize(50, 50);
+            enemy.setSpeed(4);
+            enemy.setPosition(0,0,gamePanel);
+        }
     }
 }
