@@ -95,8 +95,11 @@ namespace Schnupperspiel
             stopButton.setText("Stop");
             game.add(stopButton);
 
-
-
+            Wall wall= new Wall();
+            wall.setPosition(431, 111);
+            wall.setSize(30, 147);
+            wall.setColour(255,255, 255);
+            gamePanel.add(wall);
 
             stopButton.Enabled = false;
 
