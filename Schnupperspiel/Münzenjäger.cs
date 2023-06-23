@@ -16,6 +16,8 @@ namespace Schnupperspiel
         public int coinX = 0;
         public int coinY = 0;
 
+        public bool shouldMoveLeft = false; 
+
         public frmGame()
         {
             InitializeComponent();
@@ -157,15 +159,8 @@ namespace Schnupperspiel
                 coinY = random.Next(20, gamePanel.getWidth() - 40);
             }
             game.LookForCoin(10);
-            game.getPoints();
+            game.setScore(game.getPoints());
         }
-       
-
-
-
-
-
-
 
         private void movePlayer(object sender, KeyEventArgs key)
         {
@@ -189,7 +184,19 @@ namespace Schnupperspiel
             player.setPosition(player.getPositionX(), player.getPositionY());
 
         }
-
+        private void tmrEnemy(object sender, EventArgs e)
+        {
+            foreach (EnemyBot bot in gamePanel.getEnemyBots())
+            {
+                if (shouldMoveLeft)
+                {
+                    bot.moveLeft();
+                } else
+                {
+                    bot.moveRight();
+                }
+            }
+        }
 
 
         private void tmrGame_Tick(object sender, EventArgs e)
